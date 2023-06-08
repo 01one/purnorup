@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Easy to Use Capital to Lowercase Converter - Convert Capital Letters to Lowercase and Lower case to sentence format with Just a Few Clicks</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@300&display=swap" rel="stylesheet">
+
+
+
+<style>
+.nav-links li {
+	background-color:pink;
+	opacity: 0.5;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+.nav-links li:hover  {
+  background: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 5px 0 #00000014;
+}
+a {
+  text-decoration: none;
+}
+
+textarea {
+  width: 500px;
+  height: 300px;
+}
+
+button {
+  display: flex-grow;
+  font-family: 'Spectral';
+  justify-content: center;
+  width: 15vw;
+  height: 50px;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  border-radius: 1vw;
+  background-color: transparent;
+  box-shadow: 10px 10px 5px black, 20px 20px 12px deeppink;
+  color: white;
+  font-size: 2vw;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+button:hover {
+  background: DeepPink;
+  color: black;
+  transform: scale(1.1);
+  box-shadow: 0 0 5px 0 #00000014;
+}
+
+
+body {
+  background-image: url(background_case_converter.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#input_text {
+	font-family: "Spectral" ;
+  background-color: transparent;
+  rows: 10; 
+  cols: 50;
+  font-size: 2.1em;
+  width: 80%;
+}
+
+.copy-to-clipboard {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h1 style="display: flex; justify-content: center;">Format your text</h1>
+<div style="display: flex; justify-content: center;">
+<textarea  id="input_text" placeholder="Type or paste your text here" ></textarea></div>
+<div> </div>
+
+<div style="display: flex;justify-content: center;">
+<button type="button" onclick="capitalize()">CAPITALIZE</button>
+<button type="button" onclick="LowerCase()">lowercase</button>
+<button type="button" onclick="titleCase()">TitleCase</button>
+<button type="button" onclick="SentenceCapitalize()">Sentence</button>
+<button onclick="copyToClipboard()">Clipboard</button>
+
+</div>
+
+  <ul class="nav-links">
+	<img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Facebook Post</a></li>
+    <li><a href="case converter.html">Case Converter</a></li>
+    <li><a href="#">Social Media Cover</a></li>
+    <li><a href="#">Flyer</a></li>
+    <li><a href="#">Invitation</a></li>
+    <li><a href="#">Poster</a></li>
+    <li><a href="#">Business Card</a></li>
+    <li><a href="#">Tshirt</a></li>
+     <li><a href="#">Mug Print</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+<script>
+window.capitalize = function() {
+  var text_formating = document.getElementById("input_text").value;
+  document.getElementById("input_text").value = text_formating.toUpperCase();
+}
+window.LowerCase = function() {
+  var text_formating = document.getElementById("input_text").value;
+  document.getElementById("input_text").value = text_formating.toLowerCase();
+}
+function ConvertTitleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
+}
+window.titleCase = function() {
+  var text_formating = ConvertTitleCase(document.getElementById("input_text").value);
+  document.getElementById("input_text").value = text_formating;
+ }
+  
+
+function capitalizeSentences(str) {
+	var str=str.toLowerCase()
+  var sentences = str.split(". ");
+
+  for (let i = 0; i < sentences.length; i++) {
+    sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].slice(1);
+  }
+  return sentences.join(". ");
+}
+window.SentenceCapitalize = function() {
+  var text_formating = capitalizeSentences(document.getElementById("input_text").value);
+  document.getElementById("input_text").value = text_formating;
+ }
+
+
+function copyToClipboard(text=document.getElementById("input_text").value) {
+  var clipboard = document.createElement("textarea");
+  clipboard.textContent = text;
+  document.body.appendChild(clipboard);
+  clipboard.select();
+  document.execCommand("copy");
+  document.body.removeChild(clipboard);
+}
+
+
+</script>
+</body>
+</html>
