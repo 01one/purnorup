@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Image Cropper : Minimalight User Interface | Free | Lightweight</title>
+<link rel="shortcut icon" href="logo_icon.ico">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>/
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GE7J2XCV7R');
+</script>  
+  <style>
+    html, body {
+	 background: linear-gradient(to right, #00fffc, #ff00fd);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+.nav-links li {
+	background-color:pink;
+	opacity: 0.5;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+.nav-links li:hover  {
+  background: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 5px 0 #00000014;
+}
+a {
+  text-decoration: none;
+}
+    #container {
+      text-align: center;
+    }
+
+
+    #modalContainer {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    #modalContent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    #modalImage {
+      max-height: 90%;
+      max-width: 90%;
+    }
+    
+    #croppedImageContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    #croppedImageContainer img {
+      max-width: 200px;
+      max-height: 200px;
+    }
+    .aspect-button {
+      background-color: #FF4B2B;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    .aspect-button:hover {
+      background-color: #FF6138;
+      transform: translateY(-2px);
+    }
+    
+     .cropButton {
+      background: linear-gradient(to right, #00fffc, #ff00fd);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #uploadImage {
+      background-color: #222222;
+      color: #ff00fd;
+      border: none;
+      border-radius: 5%;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .resolutionbutton {
+      background-color: transparent;
+      color: white;
+      border: 2px solid #3498db;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .resolutionbutton:hover {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+
+    .resolution-button {
+      background-color: white;
+      opacity: .6;
+      color: #3A3A3A;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .resolution-button:hover {
+      background-color: #3A3A3A;
+      color: #FFD700;
+    }
+      #cropButton {
+      background-color: #262626;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      animation: glow 2s infinite;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+      }
+      50% {
+        box-shadow: 0px 0px 100px rgba(255, 255, 255, 0.8);
+      }
+      100% {
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+      }
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/js/jquery.Jcrop.min.js"></script>
+</head>
+<body>
+  <ul class="nav-links">
+	<img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
+    <li><a href="https://purnorup.com/">Home</a></li>
+    <li><a href="#">Facebook Post</a></li>
+    <li><a href="case converter.html">Case Converter</a></li>
+    <li><a href="#">Social Media Cover</a></li>
+    <li><a href="image cropper.html">Crop Image</a></li>
+    <li><a href="#">Invitation</a></li>
+    <li><a href="#">Poster</a></li>
+    <li><a href="#">Business Card</a></li>
+    <li><a href="#">Tshirt</a></li>
+     <li><a href="#">Mug Print</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <main></main>
+  <div id="container">
+    <input type="file" id="uploadImage" accept="image/*" />
+    <br>
+    <div id="imageContainer"></div>
+    <br>
+    <div id="aspectRatioButtons">
+      <button class="aspect-button" data-ratio="4/3">4:3</button>
+      <button class="aspect-button" data-ratio="16/9">16:9</button>
+      <button class="aspect-button" data-ratio="custom">Custom</button>
+      <button class="aspect-button" data-ratio="square">Square</button>
+    </div>
+    <br>
+    <button id="cropButton" disabled>Crop Image</button>
+    <br>
+    <h3>Download Cropped Image:</h3>
+    <div id="downloadOptions">
+      <button class="resolution-button" data-resolution="original">Original Size</button>
+      <button class="resolution-button" data-resolution="low_res">Low Resolution</button>
+      <button class="resolution-button" data-resolution="medium_res">Medium Resolution</button>
+      <button class="resolution-button" data-resolution="high_res">High Resolution</button>
+      <div>
+        <input type="number" id="customWidth" placeholder="Custom Width" min="1" step="1">
+        <input type="number" id="customHeight" placeholder="Custom Height" min="1" step="1">
+        <button id="customResolutionButton" class="resolution-button" data-resolution="custom_res">Custom Resolution</button>
+      </div>
+    </div>
+    <br>
+    <div id="croppedImageContainer"></div>
+  </div>
+
+  <div id="modalContainer">
+    <div id="modalContent">
+      <img id="modalImage">
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var jcropApi;
+
+      $('#uploadImage').change(function(e) {
+        var file = e.target.files[0];
+
+        if (file) {
+          var reader = new FileReader();
+
+          reader.onload = function(e) {
+            var image = new Image();
+            image.src = e.target.result;
+            image.onload = function() {
+              $('#imageContainer').empty().append(image);
+
+              $('#cropButton').prop('disabled', false);
+
+              if (jcropApi) {
+                jcropApi.destroy();
+              }
+
+              var selectedAspectRatio = 'custom';
+              var aspectRatioArr = selectedAspectRatio.split('/');
+              var aspectRatio = aspectRatioArr[0] / aspectRatioArr[1];
+
+              $('#imageContainer img').Jcrop({
+                aspectRatio: aspectRatio,
+                onSelect: updateCoords,
+                boxWidth: 500,
+                boxHeight: 500,
+              }, function() {
+                jcropApi = this;
+              });
+            };
+          };
+
+          reader.readAsDataURL(file);
+        }
+      });
+
+      function updateCoords(c) {
+        $('#x').val(c.x);
+        $('#y').val(c.y);
+        $('#w').val(c.w);
+        $('#h').val(c.h);
+      }
+
+      $('.aspect-button').click(function() {
+        var selectedAspectRatio = $(this).data('ratio');
+
+        $('.aspect-button').removeClass('active');
+        $(this).addClass('active');
+
+        var aspectRatioArr = selectedAspectRatio.split('/');
+        var aspectRatio = aspectRatioArr[0] / aspectRatioArr[1];
+
+        if (selectedAspectRatio === 'square') {
+          aspectRatio = 1;
+        }
+
+        jcropApi.setOptions({
+          aspectRatio: aspectRatio
+        });
+        jcropApi.focus();
+      });
+
+      $('#cropButton').click(function() {
+        var cropData = jcropApi.tellSelect();
+        var imageWidth = $('#imageContainer img').width();
+        var imageHeight = $('#imageContainer img').height();
+
+        var originalImage = new Image();
+        originalImage.src = $('#imageContainer img').attr('src');
+        originalImage.onload = function() {
+          var canvas = document.createElement('canvas');
+          canvas.width = imageWidth;
+          canvas.height = imageHeight;
+
+          var context = canvas.getContext('2d');
+          context.drawImage(originalImage, 0, 0, imageWidth, imageHeight);
+
+          var croppedCanvas = document.createElement('canvas');
+          croppedCanvas.width = cropData.w;
+          croppedCanvas.height = cropData.h;
+
+          var croppedContext = croppedCanvas.getContext('2d');
+          croppedContext.drawImage(canvas, cropData.x, cropData.y, cropData.w, cropData.h, 0, 0, cropData.w, cropData.h);
+
+          var croppedImage = croppedCanvas.toDataURL('image/jpeg', 1.0);
+          
+          // Display cropped image
+          var croppedImageElem = document.createElement('img');
+          croppedImageElem.src = croppedImage;
+          $('#croppedImageContainer').empty().append(croppedImageElem);
+
+          $('.resolution-button').unbind('click').click(function() {
+            var selectedResolution = $(this).data('resolution');
+
+            if (selectedResolution === 'original') {
+              downloadImage('original', croppedImage);
+            } else if (selectedResolution === 'low_res') {
+              var desiredWidth = 320;
+              var desiredHeight = Math.round(desiredWidth / cropData.w * cropData.h);
+              var scaledImage = scaleImage(croppedCanvas, desiredWidth, desiredHeight);
+              downloadImage('low_res', scaledImage);
+            } else if (selectedResolution === 'medium_res') {
+              var desiredWidth = 640;
+              var desiredHeight = Math.round(desiredWidth / cropData.w * cropData.h);
+              var scaledImage = scaleImage(croppedCanvas, desiredWidth, desiredHeight);
+              downloadImage('medium_res', scaledImage);
+            } else if (selectedResolution === 'high_res') {
+              var desiredWidth = 1280;
+              var desiredHeight = Math.round(desiredWidth / cropData.w * cropData.h);
+              var scaledImage = scaleImage(croppedCanvas, desiredWidth, desiredHeight);
+              downloadImage('high_res', scaledImage);
+            } else if (selectedResolution === 'custom_res') {
+              var customWidth = parseInt($('#customWidth').val(), 10);
+              var customHeight = parseInt($('#customHeight').val(), 10);
+
+              if (isNaN(customWidth) || isNaN(customHeight) || customWidth <= 0 || customHeight <= 0) {
+                alert('Please enter valid custom width and height.');
+                return;
+              }
+
+              if (customWidth > cropData.w || customHeight > cropData.h) {
+				  const message= 'Please enter the resolution lower than the width '+Math.floor(cropData.w)+ '  Pixel  Height '+ Math.floor(cropData.h) + '  Pixel (resolution after image croped)';
+                alert(message);
+                return;
+              }
+
+              var scaledImage = scaleImage(croppedCanvas, customWidth, customHeight);
+              downloadImage('custom_res', scaledImage);
+            }
+          });
+          $('#customWidth').val('');
+          $('#customHeight').val('');
+          // Show cropped image container
+          $('#croppedImageContainer').show();
+        };
+      });
+      
+      $('#customWidth').on('input', function() {
+        var customWidth = parseInt($(this).val(), 10);
+        var cropData = jcropApi.tellSelect();
+
+        if (!isNaN(customWidth) && customWidth > 0) {
+          var customHeight = Math.round(customWidth / cropData.w * cropData.h);
+          $('#customHeight').val(customHeight);
+        } else {
+          $('#customHeight').val('');
+        }
+      });
+      function scaleImage(canvas, desiredWidth, desiredHeight) {
+        var scaleFactor = Math.min(desiredWidth / canvas.width, desiredHeight / canvas.height);
+
+        var scaledCanvas = document.createElement('canvas');
+        scaledCanvas.width = canvas.width * scaleFactor;
+        scaledCanvas.height = canvas.height * scaleFactor;
+
+        var scaledContext = scaledCanvas.getContext('2d');
+        scaledContext.drawImage(canvas, 0, 0, scaledCanvas.width, scaledCanvas.height);
+
+        return scaledCanvas.toDataURL('image/jpeg', 1.0);
+      }
+
+      function downloadImage(resolution, imageData) {
+        var link = document.createElement('a');
+        link.href = imageData;
+        link.download = 'cropped_image_' + resolution + '.jpg';
+        link.click();
+      }
+    });
+  </script>
+</body>
+</html>
