@@ -1,0 +1,21 @@
+{
+  "name": "Purnorup",
+  "short_name": "Purnorup",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "pink",
+  "icons": [
+    {
+      "src": "logo_icon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo_icon.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
