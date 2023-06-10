@@ -1,3 +1,11 @@
+{
+  "name": "Purnorup",
+  "short_name": "Purnorup",
+  "description": "The Beauty of Elegant Design",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "pink",
 "icons": [
   {
     "src": "icon 192x192.png",
@@ -9,4 +17,10 @@
     "sizes": "512x512",
     "type": "image/png"
   }
-]
+],
+  "scope": "/",
+  "serviceworker": {
+    "src": "/service-worker.js",
+    "scope": "/"
+  }
+}
