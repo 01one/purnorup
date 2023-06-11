@@ -6,6 +6,7 @@ const filesToCache = [
   'logo_icon.ico',
   'case converter.html',
   'image cropper.html',
+  'challenging bricks.html',
 ];
 
 self.addEventListener('install', function(event) {
