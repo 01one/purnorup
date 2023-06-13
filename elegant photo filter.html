@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Elegant Photo Effects | Black and White Photo Filters</title>
+<link rel="shortcut icon" href="logo_icon.ico">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>/
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GE7J2XCV7R');
+</script>  
+  <style>
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    position: relative; 
+    top: 0; 
+    width: 100%; 
+}
+
+.navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 12px 12px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  }
+
+    .loading-spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0px;
+    }
+
+    h1 {
+      text-align: center;
+      position:relative;
+    }
+
+    #upload-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #photo-input {
+      display: none;
+    }
+
+    #upload-label {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .image-container {
+      position: relative;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+    }
+
+    .download-button {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    var uploadedImage;
+    var canvas;
+    var originalImageData;
+
+    function convertToBlackAndWhite() {
+      showLoadingIndicator();
+      var input = document.getElementById("photo-input");
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          var img = new Image();
+
+          img.onload = function() {
+            uploadedImage = img;
+            canvas = document.createElement("canvas");
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, img.width, img.height);
+
+            originalImageData = ctx.getImageData(0, 0, img.width, img.height);
+
+            // Apply effects asynchronously using setTimeout
+            setTimeout(function() {
+              applyEffects();
+              showDownloadButtons();
+              hideLoadingIndicator();
+            }, 0);
+          };
+
+          img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    function showDownloadButtons() {
+      var downloadButtons = document.getElementsByClassName("download-button");
+
+      for (var i = 0; i < downloadButtons.length; i++) {
+        downloadButtons[i].style.display = "inline-block";
+      }
+    }
+    
+    function showLoadingIndicator() {
+      var overlay = document.createElement("div");
+      overlay.className = "loading-overlay";
+
+      var spinner = document.createElement("div");
+      spinner.className = "loading-spinner";
+
+      overlay.appendChild(spinner);
+      document.body.appendChild(overlay);
+    }
+
+    function hideLoadingIndicator() {
+      var overlay = document.querySelector(".loading-overlay");
+      document.body.removeChild(overlay);
+    }
+
+function applyEffects() {
+  
+  applyEffect(canvas, 'high-contrast');
+  applyEffect(canvas, 'film-noir');
+  applyEffect(canvas, 'vintage');
+  applyEffect(canvas, 'fine-art');
+  applyEffect(canvas, 'science-fiction');
+  applyEffect(canvas, 'portrait-glamour');
+  applyEffect(canvas, 'classic');
+  applyEffect(canvas, 'grainy');
+
+}
+
+    function applyEffect(canvas, effect) {
+      var ctx = canvas.getContext("2d");
+      var imageData = ctx.createImageData(canvas.width, canvas.height);
+      var data = imageData.data;
+      data.set(originalImageData.data);
+
+  // Apply the effect asynchronously
+    if (effect === "classic") {
+      // Apply Classic Black and White effect
+      for (var i = 0; i < data.length; i += 4) {
+        var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+        data[i] = avg;
+        data[i + 1] = avg;
+        data[i + 2] = avg;
+      }
+    }  else if (effect === "high-contrast") {
+        // Apply High Contrast effect
+        for (var i = 0; i < data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg > 127 ? 255 : 0;
+          data[i + 1] = avg > 127 ? 255 : 0;
+          data[i + 2] = avg > 127 ? 255 : 0;
+        }
+      }  else if (effect === "film-noir") {
+        // Apply Film Noir effect
+        for (var i = 0; i < data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg;
+          data[i + 1] = avg;
+          data[i + 2] = avg + 50;}
+      }  else if (effect === "vintage") {
+        // Apply Vintage Black and White effect
+        for (var i = 0; i < data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg + 30;
+          data[i + 1] = avg + 10;
+          data[i + 2] = avg - 10;
+        }
+      } else if (effect === "fine-art") {
+        // Apply Fine Art effect
+        for (var i = 0; i < data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg;
+          data[i + 1] = avg;
+          data[i + 2] = avg;
+        }
+
+        ctx.globalCompositeOperation = "multiply";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.2)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (effect === "science-fiction") {
+        for (var i = 0; i < data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg;
+          data[i + 1] = avg+40;
+          data[i + 2] = avg;
+        }
+
+        ctx.globalCompositeOperation = "difference";
+        ctx.fillStyle = "rgba(230, 240, 255, 0.8)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      } else if (effect === "portrait-glamour") {
+        // Apply Portrait Glamour effect
+        for (var i = 0; i < data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg + 20;
+          data[i + 1] = avg + 10;
+          data[i + 2] = avg;
+        }
+      } else if (effect === "grainy") {
+        // Apply Grainy Black and White effect
+        for (var i = 0; i < data.length; i += 4) {
+          var avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          var random = Math.random() * 40 - 20;
+          var noisyAvg = avg + random;
+          data[i] = noisyAvg;
+          data[i + 1] = noisyAvg;
+          data[i + 2] = noisyAvg;
+        }
+      } 
+
+
+    ctx.putImageData(imageData, 0, 0);
+
+      // Compress the image to reduce file size
+      var imageQuality = 0.8; // Adjust the quality as desired (0.0 - 1.0)
+      var compressedDataUrl = canvas.toDataURL("image/jpeg", imageQuality);
+
+      var imageElement = document.getElementById(effect).getElementsByTagName("img")[0];
+      imageElement.src = compressedDataUrl;
+    }
+
+
+    function downloadImage(effect) {
+      var canvas = document.createElement("canvas");
+      canvas.width = uploadedImage.width;
+      canvas.height = uploadedImage.height;
+        applyEffect(canvas, effect);
+
+        // Create a temporary link element
+        var link = document.createElement("a");
+
+        // Set the attributes for downloading the image
+        link.download = "filtered-photo-" + effect + ".jpg";
+        link.href = canvas.toDataURL("image/jpeg");
+
+        // Trigger a click event on the link element to start the download
+        link.click();
+    }
+  </script>
+</head>
+<body>
+  <div class="navbar">
+		<a href="https://purnorup.com/">Home</a>
+		<a href="elegant photo filter.html">Elegant Photo Filter</a>
+		<a href="case converter.html">Case Converter</a>
+		<a href="#">Social Media Cover</a>
+		<a href="image cropper.html">Crop Image</a>
+		<a href="#">Invitation</a>
+		<a href="challenging bricks.html">Play Games</a></li>
+		<a href="#">Business Card</a>
+		<a href="#">Tshirt</a></li>
+		<a href="#">Contact</a>
+		<a href="#">About</a>
+		<img src="logo.png" alt="Website Logo" width="40px" height="40px" background-color: "transparent">
+  </div>
+ 
+    <h1>Elegant Photo Filter: Mainly Black and White Photo Effects</h1>
+  </div>
+  <div id="upload-container">
+    <label for="photo-input" id="upload-label">Upload Photo</label>
+    <input type="file" id="photo-input" accept="image/*" onchange="convertToBlackAndWhite()">
+  </div>
+  <div id="loading-indicator"></div>
+<div class="grid-container">
+  <div class="image-container" id="high-contrast">
+    <img>
+    <a class="download-button" onclick="downloadImage('high-contrast')" style="display: none;">Download</a>
+  </div>
+
+  <div class="image-container" id="film-noir">
+    <img>
+    <a class="download-button" onclick="downloadImage('film-noir')" style="display: none;">Download</a>
+  </div>
+
+  <div class="image-container" id="vintage">
+    <img>
+    <a class="download-button" onclick="downloadImage('vintage')" style="display: none;">Download</a>
+  </div>
+
+  <div class="image-container" id="fine-art">
+    <img>
+    <a class="download-button" onclick="downloadImage('fine-art')" style="display: none;">Download</a>
+  </div>
+
+  <div class="image-container" id="science-fiction">
+    <img>
+    <a class="download-button" onclick="downloadImage('science-fiction')" style="display: none;">Download</a>
+  </div>
+
+  <div class="image-container" id="portrait-glamour">
+    <img>
+    <a class="download-button" onclick="downloadImage('portrait-glamour')" style="display: none;">Download</a>
+  </div>
+
+  <div class="image-container" id="classic">
+    <img>
+    <a class="download-button" onclick="downloadImage('classic')" style="display: none;">Download</a>
+  </div>
+
+  <div class="image-container" id="grainy">
+    <img>
+    <a class="download-button" onclick="downloadImage('grainy')" style="display: none;">Download</a>
+  </div>
+
+</div>
+</body>
+</html>
