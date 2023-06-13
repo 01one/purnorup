@@ -7,6 +7,7 @@ const filesToCache = [
   'case converter.html',
   'image cropper.html',
   'challenging bricks.html',
+  'elegant photo filter.html,
 ];
 
 self.addEventListener('install', function(event) {
