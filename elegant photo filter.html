@@ -126,7 +126,8 @@
   <script>
     var uploadedImage;
     var canvas;
-    var originalImageData;
+    //var originalImageData;
+    var ImgData;
 
     function convertToBlackAndWhite() {
       showLoadingIndicator();
@@ -140,14 +141,21 @@
           img.onload = function() {
             uploadedImage = img;
             canvas = document.createElement("canvas");
-
-            canvas.width = img.width;
-            canvas.height = img.height;
+          var maxDimension = Math.max(img.width, img.height);
+          var scaleFactor = maxDimension > 3000 ? 3000 / maxDimension : 1;
+          var resizedWidth = img.width * scaleFactor;
+          var resizedHeight = img.height * scaleFactor;
+          canvas.width = resizedWidth;
+          canvas.height = resizedHeight;
+            //canvas.width = img.width;
+            //canvas.height = img.height;
 
             var ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0, img.width, img.height);
+            //ctx.drawImage(img, 0, 0, img.width, img.height);
 
-            originalImageData = ctx.getImageData(0, 0, img.width, img.height);
+           // originalImageData = ctx.getImageData(0, 0, img.width, img.height);
+            ctx.drawImage(img, 0, 0, resizedWidth, resizedHeight);
+            ImgData = ctx.getImageData(0, 0, resizedWidth, resizedHeight);
 
             // Apply effects asynchronously using setTimeout
             setTimeout(function() {
@@ -204,7 +212,8 @@ function applyEffects() {
       var ctx = canvas.getContext("2d");
       var imageData = ctx.createImageData(canvas.width, canvas.height);
       var data = imageData.data;
-      data.set(originalImageData.data);
+      //data.set(originalImageData.data);
+      data.set(ImgData.data);
 
   // Apply the effect asynchronously
     if (effect === "classic") {
@@ -294,9 +303,9 @@ function applyEffects() {
 
 
     function downloadImage(effect) {
-      var canvas = document.createElement("canvas");
-      canvas.width = uploadedImage.width;
-      canvas.height = uploadedImage.height;
+     // var canvas = document.createElement("canvas");
+      //canvas.width = uploadedImage.width;
+      //canvas.height = uploadedImage.height;
         applyEffect(canvas, effect);
 
         // Create a temporary link element
