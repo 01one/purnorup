@@ -15,7 +15,7 @@ self.addEventListener('install', function(event) {
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.filter(function(cache) {
-          return cache.startsWith('purnorup-cache-') && cache !== cacheName;
+          return cache.startsWith('purnorup-cache') && cache !== cacheName;
         }).map(function(cache) {
           return caches.delete(cache);
         })
