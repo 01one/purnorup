@@ -4,8 +4,8 @@ const filesToCache = [
   'background.png',
   'logo.png',
   'logo_icon.ico',
-  'case converter.html',
-  'image cropper.html',
+  'case-converter.html',
+  'image-cropper.html',
   'challenging-bricks.html',
   'elegant-photo-filter.html,
 ];
