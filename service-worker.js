@@ -1,4 +1,4 @@
-const cacheName = 'purnorup-cache';
+const cacheName = 'purnorup-cache-v2';
 const filesToCache = [
   '/',
   'background.png',
@@ -7,12 +7,22 @@ const filesToCache = [
   'case-converter.html',
   'image-cropper.html',
   'challenging-bricks.html',
-  'elegant-photo-filter.html,
+  'elegant-photo-filter.html',
 ];
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cache) {
+          return cache.startsWith('purnorup-cache-') && cache !== cacheName;
+        }).map(function(cache) {
+          return caches.delete(cache);
+        })
+      );
+    }).then(function() {
+      return caches.open(cacheName);
+    }).then(function(cache) {
       return cache.addAll(filesToCache);
     })
   );
@@ -25,4 +35,3 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
-
