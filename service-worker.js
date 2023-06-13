@@ -6,8 +6,8 @@ const filesToCache = [
   'logo_icon.ico',
   'case converter.html',
   'image cropper.html',
-  'challenging bricks.html',
-  'elegant photo filter.html,
+  'challenging-bricks.html',
+  'elegant-photo-filter.html,
 ];
 
 self.addEventListener('install', function(event) {
