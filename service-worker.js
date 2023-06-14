@@ -4,10 +4,10 @@ const filesToCache = [
   'background.png',
   'logo.png',
   'logo_icon.ico',
-  'case-converter.html',
-  'image-cropper.html',
+  'case-flow.html',
+  'cropify.html',
   'challenging-bricks.html',
-  'elegant-photo-filter.html',
+  'elegant-pixel.html',
 ];
 
 self.addEventListener('install', function(event) {
