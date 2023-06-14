@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+ <title>Age Nexus | Connecting You to Your Age</title>
+<link rel="shortcut icon" href="logo_icon.ico">
+ <link href="https://fonts.googleapis.com/css2?family=Molle&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GE7J2XCV7R');
+</script>
+
+<style>
+body {
+    font-family: 'Molle', cursive;
+    margin: 20px;
+    text-align: center;
+    /*background: linear-gradient(45deg, #FFA07A, #FFC0CB, #00BFFF, #7FFFD4, #00FF7F, #ADFF2F);*/
+    background: linear-gradient(45deg, #FF8A00, #E52E71, #005BFF, #0085FF, #3AAFFF, #34E8C2);
+    /*background: linear-gradient(45deg, #2980b9, #6dd5fa, #ffffff);*/
+    background-size: 600% 600%;
+    -webkit-animation: gradientAnimation 10s ease infinite;
+    -moz-animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@-webkit-keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+@-moz-keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+@keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.nav-links li {
+	background-color:pink;
+	opacity: 0.2;
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+.nav-links li:hover  {
+  background: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 5px 0 #00000014;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+    color: #333; 
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;
+    position: relative;
+    animation: slide-in 1s ease-in-out forwards; 
+}
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+        .calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+        .input-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+          
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 10px;
+           
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+          
+            
+        }
+
+        .dropdown-container {
+            position: relative;
+            border-radius: 10px;
+            background-color:rgba(255, 255, 255, 0.343);
+         
+        }
+
+        .dropdown-select {
+            font-family: 'Molle', cursive;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            outline: none;
+            background-color: transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .dropdown-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ffffff46;
+        }
+
+        .dropdown-options {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    display: none;
+}
+
+
+
+
+.dropdown-container:hover .dropdown-options {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+
+        .dropdown-option {
+            padding: 8px 10px;
+            cursor: pointer;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-option:hover {
+            background-color: #f2f2f2;
+        }
+
+    .calculate-btn {
+    margin-top: 5px;
+    padding: 10px 20px;
+    background: linear-gradient(to bottom right, #6dd9e7, #d2a0c650);
+    opacity:.5;
+    color: rgb(255, 255, 255);
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+}
+
+.calculate-btn:hover {
+    background: linear-gradient(to bottom right, #45a049, #4CAF50);
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: left;
+    line-height: 1.5;
+    background: linear-gradient(45deg, #FF8A00, #E52E71, #005BFF, #0085FF, #3AAFFF, #34E8C2);
+    background-size: 600% 600%;
+    -webkit-animation: gradientAnimation 10s ease infinite;
+    -moz-animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@-webkit-keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+@-moz-keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+@keyframes gradientAnimation {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+.year-input {
+    font-family: 'Molle', cursive;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    width: 150px;
+    transition: border-color 0.3s ease;
+}
+
+.year-input:focus {
+    border-color: #4CAF50;
+}
+
+    </style>
+    <script>
+        function updateDateRange() {
+            var monthInput = document.getElementById("month");
+            var dateInput = document.getElementById("date");
+            var yearInput = document.getElementById("year");
+
+            var selectedMonth = parseInt(monthInput.value);
+
+            var maxDate = new Date(2023, selectedMonth, 0).getDate();
+
+            dateInput.innerHTML = "";
+            for (var date = 1; date <= maxDate; date++) {
+                var option = document.createElement("option");
+                option.value = date;
+                option.text = date;
+                dateInput.appendChild(option);
+            }
+            dateInput.disabled = false;
+
+            yearInput.disabled = false;
+        }
+
+        function calculateAge() {
+            var inputDate = parseInt(document.getElementById("date").value);
+            var inputMonth = parseInt(document.getElementById("month").value);
+            var inputYear = parseInt(document.getElementById("year").value);
+
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            var currentMonth = currentDate.getMonth() + 1;
+            var currentDay = currentDate.getDate();
+
+            var ageYears = currentYear - inputYear;
+            var ageMonths = currentMonth - inputMonth;
+            var ageDays = currentDay - inputDate;
+
+            if (ageDays < 0) {
+                ageMonths--;
+                var daysInPreviousMonth = new Date(currentYear, currentMonth - 1, 0).getDate();
+                ageDays += daysInPreviousMonth;
+            }
+
+            if (ageMonths < 0) {
+                ageYears--;
+                ageMonths += 12;
+            }
+
+            var totalDays = ageYears * 365 + ageMonths * 30 + ageDays;
+            var totalWeeks = Math.floor(totalDays / 7);
+
+            var result = ageYears + " years, " + ageMonths + " months, " + ageDays + " days";
+            var resultWeeks = totalWeeks + " weeks";
+            var resultDays = totalDays + " days";
+            calculate_year=currentYear
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = "Age: " + result + "<br>Total Weeks: " + resultWeeks + "<br>Total Days: " + resultDays;
+            if (currentMonth > inputMonth || (currentMonth == inputMonth && currentDay > inputDate)) {
+                calculate_year = currentYear + 1;
+            }            
+            var nextBirthday = new Date(calculate_year, inputMonth, inputDate);
+            var timeDifference = nextBirthday.getTime() - currentDate.getTime();
+            var daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+
+            resultElement.innerHTML += "<br>Next Birthday: " + daysDifference + " days From Now";
+       
+       
+       
+       
+        }
+    </script>
+</head>
+<body>
+    <h1>Age Calculator</h1>
+    <div class="calculator">
+        <div class="input-container">
+            <div class="input-group">
+                <label for="month">Month:</label>
+                <div class="dropdown-container">
+
+                    <select id="month" class="dropdown-select" onchange="updateDateRange()">
+                        <option value="">Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="date">Date:</label>
+                <div class="dropdown-container">
+                    <select id="date" class="dropdown-select" disabled>
+                        <option value="">Date</option>
+                    </select>
+                    <div class="dropdown-options">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="number" id="year" placeholder="Year" class="year-input">
+
+        <button class="calculate-btn" onclick="calculateAge()">Calculate</button>
+
+        <div id="result" class="result"></div>
+    </div>
+</div>
+
+<ul class="nav-links">
+  <img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
+  <li><a href="https://purnorup.com/">Home</a></li>
+  <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+  <li><a href="case-flow.html">Case Flow</a></li>
+  <li><a href="age-nexus.html">Age Nexus(age calculator)</a></li>
+  <li><a href="cropify.html">Cropify</a></li>
+  <li><a href="#">Invitation</a></li>
+  <li><a href="challenging-bricks.html">Play Games</a></li>
+  <li><a href="#">Business Card</a></li>
+  <li><a href="#">Tshirt</a></li>
+   <li><a href="#">Mug Print</a></li>
+  <li><a href="#">Contact</a></li>
+  <li><a href="#">About</a></li>
+</ul>
+</body>
+</html>
