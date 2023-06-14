@@ -1,13 +1,14 @@
-const cacheName = 'purnorup-cache-v2';
+const cacheName = 'purnorup-cache-v2.1';
 const filesToCache = [
   '/',
-  'background.png',
   'logo.png',
   'logo_icon.ico',
   'case-flow.html',
   'cropify.html',
   'challenging-bricks.html',
   'elegant-pixel.html',
+  'about.html',
+  'age-nexus.html',
 ];
 
 self.addEventListener('install', function(event) {
@@ -15,7 +16,7 @@ self.addEventListener('install', function(event) {
     caches.keys().then(function(cacheNames) {
       return Promise.all(
         cacheNames.filter(function(cache) {
-          return cache.startsWith('purnorup-cache') && cache !== cacheName;
+          return cache.startsWith('purnorup-cache') || cache.startsWith('purnorup-cache-v2') && cache !== cacheName;
         }).map(function(cache) {
           return caches.delete(cache);
         })
