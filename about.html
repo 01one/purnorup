@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>About Purnorup.com</title>
+<link rel="shortcut icon" href="logo_icon.ico">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GE7J2XCV7R');
+</script> 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+    body {
+      font-family: 'Courier Prime', monospace;
+      background: linear-gradient(to right, #ccbf7e, #FCEBBF, #E8D8AF, #CDBE91, #B0A675);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      background-color: #ECECEC;
+      animation: gradientAnimation 1s ease infinite;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .typewriter-text {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow: hidden;
+      animation: typing 5s steps(40) forwards;
+      background-color: #dcdcca2e;
+      padding: 20px;
+      border-radius: 5px;
+      width: 800px max; 
+    }
+
+    @keyframes typing {
+      from {
+        width: 100%; 
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .typewriter-text::after {
+      content: '|';
+      display: inline-block;
+      margin-left: 3px;
+      opacity: 1;
+      animation: blink 0.7s infinite;
+    }
+    .home-button {
+      display: none;
+      position:fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: rgba(255, 255, 255, 0.273);
+      color: rgb(149, 88, 88);
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover  {
+  background: rgba(255, 255, 255, 0.573);
+    }
+  </style>
+</head>
+
+<body>
+    <div>
+       
+    </div>
+  <div class="container">
+    <a href="https://purnorup.com/" class="home-button" >Home</a>
+    <h1>About - Purnorup</h1>
+    <div class="typewriter-text"></div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const textElement = document.querySelector('.typewriter-text');
+      const text = `Purnorup is an esteemed platform dedicated to the art of elegant design and an extensive collection of versatile tools. The commitment to excellence drives the platform to provide personalized, unique, and relevant solutions that elevate users' daily experiences.
+
+At Purnorup, the profound impact of simplicity is understood. The carefully curated assortment of tools embodies this principle by eliminating superfluous elements and focusing on essential functionality. The platform offers natural, original, and responsive tools that seamlessly integrate into users' workflows.
+
+Purnorup consists of passionate professionals, driven by a common goal: to deliver user-friendly experiences that surpass expectations. With an acute understanding of intuitive interfaces and meticulously polished designs, interacting with the tools becomes a pleasurable and effortless experience.
+
+Embracing an ethos of collaboration and transparency, Purnorup actively encourages open-source practices. Users are invited to explore and contribute to the platform's projects on GitHub, fostering an environment of innovation and collective growth. By opening the source code, Purnorup promotes dialogue and collaboration within the community.
+
+Purnorup is committed to simplifying users' lives and infusing elegance into every facet of their routines. Whether it's enhancing creativity, optimizing productivity, or finding joy in leisure time, the diverse range of tools is meticulously crafted to meet specific needs.
+
+To learn more about the platform's philosophy and explore the range of tools, visit the website. Connect with Purnorup on GitHub to explore open-source projects and contribute to the vibrant community.
+
+Your presence at Purnorup is greatly appreciated, and the platform looks forward to serving you with excellence and innovation.`;
+
+      const typingDelay = 50;
+      let wordIndex = 0;
+
+      function type() {
+        const word = text.slice(wordIndex, wordIndex + 1);
+        if (word === '<') {
+          wordIndex = text.indexOf('>', wordIndex) + 1;
+        }
+        textElement.innerHTML += word;
+        wordIndex++;
+        if (wordIndex < text.length) {
+          setTimeout(type, typingDelay);
+        }
+      }
+
+      type();
+    });
+  </script>
+
+</body>
+
+</html>
