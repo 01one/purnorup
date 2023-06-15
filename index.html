@@ -13,10 +13,17 @@
 
   gtag('config', 'G-GE7J2XCV7R');
 </script>
-<style>
+  <style>
 body {
-  background-color:#000000;
+  background-color: #F9F6F2;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 20px 20px;
 }
+
 a {
     background: rgba(255, 255, 255, 0.511);
     color:#7e795e;
@@ -63,27 +70,6 @@ a {
   color:pink; 
 }
 
-  
-.quote {
-  margin: 20px auto;
-  max-width: 500px;
-  padding: 20px;
-  background-color:rgba(0, 0, 0, 0.882);
-  border-radius: 10px;
-  box-shadow: 0 0 5px 0 #ccc;
-}
-
-.quote p {
-  font-size: 20px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.846);
-}
-
-.quote footer {
-  font-size: 26px;
-  color: #666;
-  margin-top: 10px;
-}
 h1 {
   width: w;
   white-space: wrap;
@@ -92,13 +78,20 @@ h1 {
   color: #44403836;
   background-color: rgba(255, 255, 255, 0.097);
 }
-</style>
-<link rel="manifest" href="/manifest.json">
+
+footer {
+      margin-top: auto;
+      text-align: center;
+      background-color: #F9F6F2;
+      color: rgba(23, 3, 3, 0.642);
+      padding: 10px 0;
+    }
+
+  </style>
 </head>
 <body>
-	
   <ul class="nav-links">
-	<img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
+    <img src="logo.png" alt="My Website Logo" width="50px" height="50px" style="background-color: transparent;">
     <li><a href="https://purnorup.com/">Home</a></li>
     <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
     <li><a href="case-flow.html">Case Flow</a></li>
@@ -108,45 +101,38 @@ h1 {
     <li><a href="#">Contact</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
- 
-<main>
-	
-	
-<blockquote class="quote">
-  <p>“Simplicity is an exact medium between too little and too much”</p>
-  <footer>- Sir Joshua Reynolds</footer>
-</blockquote>
-<blockquote class="quote">
-  <p>“The ability to simplify means to eliminate the unnecessary so that the necessary may speak.”</p>
-  <footer>- Hans Hofmann</footer>
-</blockquote>
 
-<pre>
-p: personalized
-u: unique
-r: relevant
-n: natural
-o: original
-r: responsive
-u: user-friendly
-p: polished
-</pre>
-<h1><a href="https://github.com/01one/purnorup">Open source. Build with ❤ with Transparency</a></h1>
-<footer>
-<p style="color:rgba(255, 255, 255, 0.146);">Copyright &copy; 2023 mashiurrahman99  </p>
-</footer>
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-        // Registration was successful
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, function(err) {
-        // Registration failed
-        console.log('ServiceWorker registration failed: ', err);
+  <br>
+  <br>
+
+  <pre>
+    p: personalized
+    u: unique
+    r: relevant
+    n: natural
+    o: original
+    r: responsive
+    u: user-friendly
+    p: polished
+  </pre>
+  
+  <h1><a href="https://github.com/01one/purnorup">Open source. Build with ❤ with Transparency</a></h1>
+  
+  <footer>
+    <p>Copyright &copy; 2023 purnorup.com</p>
+  </footer>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // Registration failed
+          console.log('ServiceWorker registration failed: ', err);
+        });
       });
-    });
-  }
-</script>
+    }
+  </script>
 </body>
 </html>
