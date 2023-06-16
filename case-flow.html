@@ -16,23 +16,42 @@
 </script>
 
 <style>
+body {
+  background-color: #F9F6F2;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 20px 20px;
+}
+
+a {
+    background: rgba(255, 255, 255, 0.511);
+    color:#7e795e;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+  text-decoration: none;
+  ;
+}
+
 .nav-links li {
-	background-color:pink;
-	opacity: 0.5;
+    background: linear-gradient(to right, #ccbf7e, #FCEBBF, #E8D8AF, #CDBE91, #B0A675);
+	opacity: 0.8;
   display: inline-block;
-  padding: 10px 15px;
+  padding: 10px 10px;
   border-radius: 10px;
+  margin-left: .3vw;
   color: white;
 }
 
 .nav-links li:hover  {
   background: white;
-  transform: scale(1.05);
+  transform: scale(1.1);
   box-shadow: 0 0 5px 0 #00000014;
 }
-a {
-  text-decoration: none;
-}
+
 
 textarea {
   width: 500px;
@@ -48,29 +67,23 @@ button {
   margin-left: 2vw;
   margin-top: 1vw;
   border-radius: 1vw;
-  background-color: transparent;
-  box-shadow: 10px 10px 5px black, 20px 20px 12px deeppink;
-  color: white;
+  background-color: rgba(167, 141, 141, 0.124);
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.305), 20px 20px 12px rgba(90, 83, 87, 0.293);
+  color: rgba(156, 138, 138, 0.92);
   font-size: 2vw;
   cursor: pointer;
   transition: 0.4s;
 }
 
 button:hover {
-  background: DeepPink;
+  background: linear-gradient(to right, #ccbf7e, #FCEBBF, #E8D8AF, #CDBE91, #B0A675);
   color: black;
   transform: scale(1.1);
   box-shadow: 0 0 5px 0 #00000014;
 }
 
 
-body {
-  background-image: url(background_case_converter.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-html, body {
+html {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -95,9 +108,32 @@ html, body {
   color: #fff;
   cursor: pointer;
 }
+
+footer {
+      margin-top: auto;
+      text-align: center;
+      background-color: #F9F6F2;
+      color: rgba(23, 3, 3, 0.642);
+      padding: 10px 0;
+    }
+
+
 </style>
 </head>
 <body>
+  <ul class="nav-links">
+    <img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
+      <li><a href="https://purnorup.com/">Home</a></li>
+      <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+      <li><a href="case-flow.html">Case Converter</a></li>
+      <li><a href="cropify.html">Cropify</a></li>
+      <li><a href="challenging-bricks.html">Play Games</a></li>
+      <li><a href="age-nexus.html">Age Nexus</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+
+
+  
 <h1 style="display: flex; justify-content: center;">Format your text</h1>
 <div style="display: flex; justify-content: center;">
 <textarea  id="input_text" placeholder="Type or paste your text here" ></textarea></div>
@@ -112,16 +148,7 @@ html, body {
 
 </div>
 
-  <ul class="nav-links">
-	<img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
-    <li><a href="https://purnorup.com/">Home</a></li>
-    <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
-    <li><a href="case-flow.html">Case Converter</a></li>
-    <li><a href="cropify.html">Cropify</a></li>
-    <li><a href="challenging-bricks.html">Play Games</a></li>
-    <li><a href="age-nexus.html">Age Nexus</a></li>
-    <li><a href="about.html">About</a></li>
-  </ul>
+
 <script>
 window.capitalize = function() {
   var text_formating = document.getElementById("input_text").value;
@@ -166,7 +193,9 @@ function copyToClipboard(text=document.getElementById("input_text").value) {
   document.body.removeChild(clipboard);
 }
 
-
 </script>
+<footer>
+  <p>Copyright &copy; 2023 purnorup.com</p>
+</footer>
 </body>
 </html>
