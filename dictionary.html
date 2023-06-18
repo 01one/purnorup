@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>English-to-English Dictionary</title>
+<link rel="shortcut icon" href="logo_icon.ico">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GE7J2XCV7R');
+</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+  
+  
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+body {
+  background-color: #F9F6F2;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+  background-size: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+
+a {
+    background: rgba(255, 255, 255, 0.511);
+    color:#7e795e;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+  text-decoration: none;
+  ;
+}
+
+.nav-links li {
+    background: linear-gradient(to right, #ccbf7e, #FCEBBF, #E8D8AF, #CDBE91, #B0A675);
+  display: inline-block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-left: .3vw;
+  color: white;
+}
+
+.nav-links li:hover  {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 5px 0 #00000014;
+}
+
+
+.navbar {
+  text-align: left;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: .5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: max-content;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background-color:white;
+}
+
+.container {
+  text-align: center;
+  background-color:transparent;
+  
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  margin-top: 110px;
+}
+
+h1 {
+font-family: 'Courier Prime', monospace;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+#word-input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid #333;
+  outline: none;
+  text-align: center;
+  transition: border-bottom-color 0.3s ease-in-out;
+  max-width: 300px;
+  width: 100%;
+}
+
+#word-input:focus {
+  border-bottom-color: #007bff;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.result-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.spinner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+.spinner::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  border-top-color: #333;
+  animation: spin 1s infinite linear;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#meaning-output {
+font-family: 'Courier Prime', monospace;
+  font-size: 1.2rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+  
+  </style>
+  
+</head>
+<body>
+  <div class="navbar">
+    <ul class="nav-links">
+      <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
+      <li><a href="https://purnorup.com/">Home</a></li>
+      <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+      <li><a href="case-flow.html">Case Flow</a></li>
+      <li><a href="cropify.html">Cropify</a></li>
+      <li><a href="challenging-bricks.html">Play Games</a></li>
+      <li><a href="age-nexus.html">Age Nexus</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  
+  
+  <br>
+  <div class="container">
+
+    <h1>English-to-English Dictionary</h1>
+
+    <div class="input-section">
+      <label for="word-input">Enter a word:</label>
+      <input type="text" id="word-input" placeholder="Type a word...">
+      <button onclick="getMeaning()" disabled>Get Meaning</button>
+    </div>
+
+      <p id="meaning-output"></p>
+      <div class="spinner"></div>
+  </div>
+  
+  
+  <script>
+    let dictionaryData; // Variable to store the loaded dictionary data
+
+    // Function to show the loading spinner
+    function showLoadingSpinner() {
+      document.querySelector('.spinner').style.display = 'block';
+    }
+
+    // Function to hide the loading spinner
+    function hideLoadingSpinner() {
+      document.querySelector('.spinner').style.display = 'none';
+    }
+
+    // Function to load and extract the dictionary data from the zip file
+    function loadDictionaryData() {
+      showLoadingSpinner();
+
+      const zipFile = 'data/dictionary_data.zip';
+
+      return fetch(zipFile)
+        .then(response => response.blob())
+        .then(blob => {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            const zipData = event.target.result;
+            const zip = new JSZip();
+            return zip.loadAsync(zipData)
+              .then(zip => {
+                const dictionaryDataFile = zip.file('dictionary_data.json');
+                if (dictionaryDataFile) {
+                  return dictionaryDataFile.async('text')
+                    .then(text => {
+                      dictionaryData = JSON.parse(text);
+                      extractData();
+                      enableInputAndButton();
+                      hideLoadingSpinner();
+                    });
+                } else {
+                  console.log('Error: dictionary_data.json not found in the zip file.');
+                  throw new Error('An error occurred while loading the dictionary data.');
+                }
+              })
+              .catch(error => {
+                console.log('Error:', error);
+                throw new Error('An error occurred while loading the zip file.');
+              });
+          };
+          reader.readAsArrayBuffer(blob);
+        })
+        .catch(error => {
+          console.log('Error:', error);
+          throw new Error('An error occurred while loading the zip file.');
+        });
+    }
+
+    // Function to extract the data from the loaded dictionary data
+    function extractData() {
+      const wordList = dictionaryData[0];
+      const meaningList = dictionaryData[1];
+
+      // Perform any necessary data processing or manipulation here
+
+    }
+
+    // Function to enable the input and button
+    function enableInputAndButton() {
+      document.getElementById('word-input').disabled = false;
+      document.querySelector('button').disabled = false;
+    }
+
+    // Function to retrieve the meaning of a word from the dictionary
+    function getMeaning() {
+      const wordInput = document.getElementById('word-input').value.toLowerCase();
+      const firstLetter = wordInput.charAt(0).toUpperCase();
+
+      if (!dictionaryData) {
+        loadDictionaryData()
+          .then(() => {
+            searchMeaning(wordInput);
+          })
+          .catch(error => {
+            console.log('Error:', error);
+            document.getElementById('meaning-output').textContent = error.message;
+            hideLoadingSpinner();
+          });
+      } else {
+        searchMeaning(wordInput);
+      }
+    }
+
+    // Function to search for the meaning of a word
+    function searchMeaning(word) {
+      if (!dictionaryData || dictionaryData.length < 2) {
+        document.getElementById('meaning-output').textContent = 'Dictionary data is not properly loaded.';
+        return;
+      }
+
+      const wordList = dictionaryData[0];
+      const meaningList = dictionaryData[1];
+
+      if (!Array.isArray(wordList) || !Array.isArray(meaningList) || wordList.length !== meaningList.length) {
+        document.getElementById('meaning-output').textContent = 'Dictionary data is not in the expected format.';
+        return;
+      }
+
+      for (let i = 0; i < wordList.length; i++) {
+        if (wordList[i].toLowerCase() === word) {
+          document.getElementById('meaning-output').textContent = meaningList[i];
+          return;
+        }
+      }
+
+      document.getElementById('meaning-output').textContent = 'Meaning not found.';
+    }
+
+    // Event listener for the page load event
+    window.addEventListener('load', function() {
+      loadDictionaryData()
+        .catch(error => {
+          console.log('Error:', error);
+          document.getElementById('meaning-output').textContent = error.message;
+          hideLoadingSpinner();
+        });
+    });
+  // Function to handle the keydown event on the input field
+function handleKeyDown(event) {
+  if (event.key === 'Enter') {
+    getMeaning();
+  }
+}
+
+// Event listener for the "keydown" event on the input field
+document.getElementById('word-input').addEventListener('keydown', handleKeyDown);
+
+// Function to show the input section
+function showInputSection() {
+  document.querySelector('.input-section').style.display = 'flex';
+}
+
+// Function to hide the input section
+function hideInputSection() {
+  document.querySelector('.input-section').style.display = 'none';
+}
+
+function showLoadingSpinner() {
+  document.querySelector('.spinner').style.display = 'block';
+  hideInputSection(); // Hide input section while spinner is spinning
+}
+
+// Function to hide the loading spinner
+function hideLoadingSpinner() {
+  document.querySelector('.spinner').style.display = 'none';
+  showInputSection(); // Show input section after spinner stops spinning
+}
+
+
+  </script>
+</body>
+</html>
