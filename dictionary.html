@@ -18,24 +18,27 @@
   
   <style>
    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Tinos&display=swap');
 body {
-  background-color: #F9F6F2;
+  background-color:#2f8b36;
   background-image:
     linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
     linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
     linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
-  background-size: 20px 20px;
+}
+
+.wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  background-color:#355e3b;
 }
 
 
 a {
-    background: rgba(255, 255, 255, 0.511);
-    color:#7e795e;
+    background: rgba(31, 157, 129, 0.883);
+    color:#5bf6e4;
 
     padding: 5px 10px;
     border-radius: 5px;
@@ -44,34 +47,20 @@ a {
 }
 
 .nav-links li {
-    background: linear-gradient(to right, #ccbf7e, #FCEBBF, #E8D8AF, #CDBE91, #B0A675);
+  font-family: 'Tinos', serif;
+  background-color: #d5ddd714;
   display: inline-block;
   padding: 10px 10px;
   border-radius: 10px;
   margin-left: .3vw;
   color: white;
+   font-size: 20px;
 }
 
 .nav-links li:hover  {
-  background: white;
+  background: rgba(31, 157, 129, 0.883);
   transform: scale(1.1);
   box-shadow: 0 0 5px 0 #00000014;
-}
-
-
-.navbar {
-  text-align: left;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: .5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: w;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  background-color:white;
 }
 
 .container {
@@ -187,20 +176,20 @@ font-family: 'Courier Prime', monospace;
   
 </head>
 <body>
-  <div class="navbar">
-    <ul class="nav-links">
-      <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
-      <li><a href="https://purnorup.com/">Home</a></li>
-      <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
-      <li><a href="case-flow.html">Case Flow</a></li>
-      <li><a href="cropify.html">Cropify</a></li>
-      <li><a href="challenging-bricks.html">Play Games</a></li>
-      <li><a href="age-nexus.html">Age Nexus</a></li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-  </div>
-  
+
+  <div class="wrapper">
+    <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
+  <ul class="nav-links">
+    <li><a href="https://purnorup.com/">Home</a></li>
+    <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+    <li><a href="case-flow.html">Case Flow</a></li>
+    <li><a href="cropify.html">Cropify</a></li>
+    <li><a href="challenging-bricks.html">Play Games</a></li>
+    <li><a href="age-nexus.html">Age Nexus</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</div>
   
   <br>
   <div class="container">
