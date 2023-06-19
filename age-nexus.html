@@ -16,54 +16,51 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Tinos&display=swap');
 body {
-    font-family: 'Molle', cursive;
-    margin: 20px;
-    text-align: center;
-    /*background: linear-gradient(45deg, #FFA07A, #FFC0CB, #00BFFF, #7FFFD4, #00FF7F, #ADFF2F);*/
-    background: linear-gradient(45deg, #FF8A00, #E52E71, #005BFF, #0085FF, #3AAFFF, #34E8C2);
-    /*background: linear-gradient(45deg, #2980b9, #6dd5fa, #ffffff);*/
-    background-size: 600% 600%;
-    -webkit-animation: gradientAnimation 10s ease infinite;
-    -moz-animation: gradientAnimation 10s ease infinite;
-    animation: gradientAnimation 10s ease infinite;
+  background-color:#2f8b36;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
 }
 
-@-webkit-keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#355e3b;
 }
 
-@-moz-keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
 
-@keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+a {
+    background: rgba(31, 157, 129, 0.883);
+    color:#5bf6e4;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+  text-decoration: none;
+  ;
 }
 
 .nav-links li {
-	background-color:pink;
-	opacity: 0.2;
+  font-family: 'Tinos', serif;
+  background-color: #d5ddd714;
   display: inline-block;
-  padding: 10px 15px;
+  padding: 10px 10px;
   border-radius: 10px;
+  margin-left: .3vw;
   color: white;
+   font-size: 20px;
 }
 
 .nav-links li:hover  {
-  background: white;
-  transform: scale(1.05);
+  background: rgba(31, 157, 129, 0.883);
+  transform: scale(1.1);
   box-shadow: 0 0 5px 0 #00000014;
 }
-a {
-  text-decoration: none;
-}
+
 h1 {
     color: #333; 
     font-size: 24px;
@@ -204,30 +201,9 @@ h1 {
     font-size: 18px;
     text-align: left;
     line-height: 1.5;
-    background: linear-gradient(45deg, #FF8A00, #E52E71, #005BFF, #0085FF, #3AAFFF, #34E8C2);
-    background-size: 600% 600%;
-    -webkit-animation: gradientAnimation 10s ease infinite;
-    -moz-animation: gradientAnimation 10s ease infinite;
-    animation: gradientAnimation 10s ease infinite;
+
 }
 
-@-webkit-keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-@-moz-keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-@keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
 .year-input {
     font-family: 'Molle', cursive;
     padding: 10px;
@@ -360,14 +336,18 @@ h1 {
         <div id="result" class="result"></div>
     </div>
 </div>
-
-<ul class="nav-links">
-  <img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
-  <li><a href="https://purnorup.com/">Home</a></li>
-  <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
-  <li><a href="challenging-bricks.html">Play Games</a></li>
-	<li><a href="age-nexus.html">Age Nexus(age calculator)</a></li>
-  <li><a href="about.html">About</a></li>
-</ul>
+  <div class="wrapper">
+    <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
+  <ul class="nav-links">
+    <li><a href="https://purnorup.com/">Home</a></li>
+    <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+    <li><a href="case-flow.html">Case Flow</a></li>
+    <li><a href="cropify.html">Cropify</a></li>
+    <li><a href="challenging-bricks.html">Play Games</a></li>
+    <li><a href="age-nexus.html">Age Nexus</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+</div>
 </body>
 </html>
