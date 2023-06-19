@@ -12,38 +12,56 @@
   gtag('js', new Date());
 
   gtag('config', 'G-GE7J2XCV7R');
-</script>  
+</script>
+
   <style>
-    html, body {
-	 background: linear-gradient(to right, #00fffc, #ff00fd);
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+     @import url('https://fonts.googleapis.com/css2?family=Tinos&display=swap');
+body {
+  background-color:#2f8b36;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#355e3b;
+}
+
+
+a {
+    background: rgba(31, 157, 129, 0.883);
+    color:#5bf6e4;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+  text-decoration: none;
+  ;
+}
+
 .nav-links li {
-	background-color:pink;
-	opacity: 0.5;
+  font-family: 'Tinos', serif;
+  background-color: #d5ddd714;
   display: inline-block;
-  padding: 10px 15px;
+  padding: 10px 10px;
   border-radius: 10px;
+  margin-left: .3vw;
   color: white;
+   font-size: 20px;
 }
 
 .nav-links li:hover  {
-  background: white;
-  transform: scale(1.05);
+  background: rgba(31, 157, 129, 0.883);
+  transform: scale(1.1);
   box-shadow: 0 0 5px 0 #00000014;
 }
-a {
-  text-decoration: none;
-}
-    #container {
-      text-align: center;
-    }
-
 
     #modalContainer {
+      justify-content: center;
       display: none;
       position: fixed;
       z-index: 9999;
@@ -188,20 +206,35 @@ a {
       100% {
         box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
       }
+    }
+    #main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#000000f7;
+}
   </style>
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/css/jquery.Jcrop.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.15/js/jquery.Jcrop.min.js"></script>
 </head>
 <body>
+  <div class="wrapper">
+    <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
   <ul class="nav-links">
-	<img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
     <li><a href="https://purnorup.com/">Home</a></li>
     <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+    <li><a href="case-flow.html">Case Flow</a></li>
     <li><a href="cropify.html">Cropify</a></li>
     <li><a href="challenging-bricks.html">Play Games</a></li>
+    <li><a href="age-nexus.html">Age Nexus</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="about.html">About</a></li>
   </ul>
-  <main></main>
+</div>
+
+  <main id="main">
   <div id="container">
     <input type="file" id="uploadImage" accept="image/*" />
     <br>
@@ -213,6 +246,7 @@ a {
       <button class="aspect-button" data-ratio="custom">Custom</button>
       <button class="aspect-button" data-ratio="square">Square</button>
     </div>
+    <div id="croppedImageContainer"></div>
     <br>
     <button id="cropButton" disabled>Crop Image</button>
     <br>
@@ -229,7 +263,6 @@ a {
       </div>
     </div>
     <br>
-    <div id="croppedImageContainer"></div>
   </div>
 
   <div id="modalContainer">
@@ -237,6 +270,7 @@ a {
       <img id="modalImage">
     </div>
   </div>
+</main>
 
   <script>
     $(document).ready(function() {
