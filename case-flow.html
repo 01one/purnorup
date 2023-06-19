@@ -17,19 +17,26 @@
 
 <style>
 body {
-  background-color: #F9F6F2;
+body {
+  background-color: #f5f5f5;
   background-image:
     linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
     linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
     linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
-  background-size: 20px 20px;
 }
 
-a {
-    background: rgba(255, 255, 255, 0.511);
-    color:#7e795e;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#355e3b;
+}
 
+
+a {
+    background: rgba(31, 157, 129, 0.883);
+    color:#5bf6e4;
     padding: 5px 10px;
     border-radius: 5px;
   text-decoration: none;
@@ -37,17 +44,17 @@ a {
 }
 
 .nav-links li {
-    background: linear-gradient(to right, #ccbf7e, #FCEBBF, #E8D8AF, #CDBE91, #B0A675);
-	opacity: 0.8;
+  background-color: #d5ddd714;
   display: inline-block;
   padding: 10px 10px;
   border-radius: 10px;
   margin-left: .3vw;
   color: white;
+   font-size: 20px;
 }
 
 .nav-links li:hover  {
-  background: white;
+  background: rgba(31, 157, 129, 0.883);
   transform: scale(1.1);
   box-shadow: 0 0 5px 0 #00000014;
 }
@@ -121,8 +128,9 @@ footer {
 </style>
 </head>
 <body>
-  <ul class="nav-links">
-    <img src="logo.png" alt="My Website Logo" width="50px" height="50px" background-color: "transparent">
+  <div class="wrapper">
+    <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
+      <ul class="nav-links">
       <li><a href="https://purnorup.com/">Home</a></li>
       <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
       <li><a href="case-flow.html">Case Converter</a></li>
@@ -132,6 +140,7 @@ footer {
       <li><a href="age-nexus.html">Age Nexus</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
+</div>
 
 
   
