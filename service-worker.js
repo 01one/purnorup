@@ -2,6 +2,7 @@ const cacheName = 'purnorup-cache-v2.3';
 const filesToCache = [
   'logo.png',
   'logo_icon.ico',
+  'data/dictionary_data.zip',
 ];
 
 self.addEventListener('install', function(event) {
