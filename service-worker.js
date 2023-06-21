@@ -1,7 +1,14 @@
-const cacheName = 'purnorup-cache-v2.3';
+const cacheName = 'purnorup-cache-v2.4';
 const filesToCache = [
+  '/',
   'logo.png',
   'logo_icon.ico',
+  'elegant-pixel.html',
+  'challenging-bricks.html,
+  'age-nexus.html',
+  'dictionary.html',
+  'case-flow.html',
+  'about.html',
   'data/dictionary_data.zip',
 ];
 
