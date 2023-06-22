@@ -4,7 +4,7 @@ const filesToCache = [
   'logo.png',
   'logo_icon.ico',
   'elegant-pixel.html',
-  'challenging-bricks.html,
+  'challenging-bricks.html',
   'age-nexus.html',
   'dictionary.html',
   'case-flow.html',
