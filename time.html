@@ -962,7 +962,7 @@ a {
         var currentTime = new Date();
         currentTime.setHours(currentTime.getHours() + hours);
         currentTime.setMinutes(currentTime.getMinutes() + minutes);
-        var formattedTime = currentTime.toLocaleTimeString();
+        var formattedTime = currentTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
         document.getElementById("time_" + country.replace(/ /g, "_")).textContent = formattedTime;
       }
     }
