@@ -943,7 +943,6 @@ a {
         timeElement.appendChild(nameElement);
         timeElement.appendChild(flagContainer);
         timeElement.appendChild(timeValueElement);
-
         timeContainer.appendChild(timeElement);
       }
 
@@ -962,7 +961,7 @@ a {
         var currentTime = new Date();
         currentTime.setHours(currentTime.getHours() + hours);
         currentTime.setMinutes(currentTime.getMinutes() + minutes);
-        var formattedTime = currentTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+        var formattedTime = currentTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
         document.getElementById("time_" + country.replace(/ /g, "_")).textContent = formattedTime;
       }
     }
