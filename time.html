@@ -1,0 +1,1056 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Discover the current time in various time zones with Local Time. Stay connected globally, plan meetings, and stay on schedule effortlessly. Explore time differences and stay in sync with Local Time.">
+<meta name="viewport" content="width=device-width">
+<title>Local Time | Find Current Time in Different Time Zones</title>
+<link rel="shortcut icon" href="logo_icon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icon.min.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-GE7J2XCV7R');
+</script>
+
+  <style>
+    body {
+       
+      font-family: Arial, sans-serif;
+      background: rgba(31, 157, 129, 0.883);
+      margin: 0;
+      padding: 20px;
+    }
+
+
+    .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#355e3b;
+}
+
+
+a {
+    background: rgba(31, 157, 129, 0.883);
+    color:#5bf6e4;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+  text-decoration: none;
+  ;
+}
+
+.nav-links li {
+  font-family: 'Tinos', serif;
+  background-color: #d5ddd714;
+  display: inline-block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-left: .3vw;
+  color: white;
+   font-size: 20px;
+}
+
+.nav-links li:hover  {
+  background: rgba(31, 157, 129, 0.883);
+  transform: scale(1.1);
+  box-shadow: 0 0 5px 0 #00000014;
+}
+
+
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .country-time {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 5px;
+      padding: 5px;
+      background-color: #3d044323;
+      border-radius: 3px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      color:#b0eeb9;
+    }
+
+    .country-time__flag {
+      margin-right: 10px;
+    }
+
+    .country-time__name,
+    .country-time__time {
+      font-size: 15px;
+      font-family: 'Kaisei HarunoUmi', serif;
+    }
+
+    .matched {
+      background-color: #f0191958;
+    }
+
+#alphabet {
+    display: flex;
+    display: flex;
+        justify-content: center;
+}
+
+    #alphabet-buttons {
+
+      margin-bottom: 10px;
+
+    }
+
+   button {
+        background-color: cadetblue;
+        border-radius: 3px;
+        padding: 4px 12px;
+      margin: 0 5px;
+    }
+
+ button.active {
+      background-color: #f5f5f5;
+    }
+
+
+
+
+    .result {
+
+      background-color: #4f17172e;
+      border-radius: 3px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet">
+
+  <script>
+   var timeZones = {
+  "Afghanistan": {
+    "code": "AF",
+    "offset": 4.5
+  },
+  "Albania": {
+    "code": "AL",
+    "offset": 2
+  },
+  "Algeria": {
+    "code": "DZ",
+    "offset": 1
+  },
+  "Andorra": {
+    "code": "AD",
+    "offset": 1
+  },
+  "Angola": {
+    "code": "AO",
+    "offset": 1
+  },
+  "Antigua and Barbuda": {
+    "code": "AG",
+    "offset": -4
+  },
+  "Argentina": {
+    "code": "AR",
+    "offset": -3
+  },
+  "Armenia": {
+    "code": "AM",
+    "offset": 4
+  },
+  "Australia": {
+    "code": "AU",
+    "offset": 10
+  },
+  "Austria": {
+    "code": "AT",
+    "offset": 1
+  },
+  "Azerbaijan": {
+    "code": "AZ",
+    "offset": 4
+  },
+  "Bahamas": {
+    "code": "BS",
+    "offset": -5
+  },
+  "Bahrain": {
+    "code": "BH",
+    "offset": 3
+  },
+  "Bangladesh": {
+    "code": "BD",
+    "offset": 6
+  },
+  "Barbados": {
+    "code": "BB",
+    "offset": -4
+  },
+  "Belarus": {
+    "code": "BY",
+    "offset": 3
+  },
+  "Belgium": {
+    "code": "BE",
+    "offset": 1
+  },
+  "Belize": {
+    "code": "BZ",
+    "offset": -6
+  },
+  "Benin": {
+    "code": "BJ",
+    "offset": 1
+  },
+  "Bhutan": {
+    "code": "BT",
+    "offset": 6
+  },
+  "Bolivia": {
+    "code": "BO",
+    "offset": -4
+  },
+  "Bosnia and Herzegovina": {
+    "code": "BA",
+    "offset": 1
+  },
+  "Botswana": {
+    "code": "BW",
+    "offset": 2
+  },
+  "Brazil": {
+    "code": "BR",
+    "offset": -3
+  },
+  "Brunei Darussalam": {
+    "code": "BN",
+    "offset": 8
+  },
+  "Bulgaria": {
+    "code": "BG",
+    "offset": 2
+  },
+  "Burkina Faso": {
+    "code": "BF",
+    "offset": 0
+  },
+  "Burundi": {
+    "code": "BI",
+    "offset": 2
+  },
+  "Cabo Verde": {
+    "code": "CV",
+    "offset": -1
+  },
+  "Cambodia": {
+    "code": "KH",
+    "offset": 7
+  },
+  "Cameroon": {
+    "code": "CM",
+    "offset": 1
+  },
+  "Canada": {
+    "code": "CA",
+    "offset": -8
+  },
+  "Central African Republic": {
+    "code": "CF",
+    "offset": 1
+  },
+  "Chad": {
+    "code": "TD",
+    "offset": 1
+  },
+  "Chile": {
+    "code": "CL",
+    "offset": -4
+  },
+  "China": {
+    "code": "CN",
+    "offset": 8
+  },
+  "Colombia": {
+    "code": "CO",
+    "offset": -5
+  },
+  "Comoros": {
+    "code": "KM",
+    "offset": 3
+  },
+  "Congo": {
+    "code": "CG",
+    "offset": 1
+  },
+  "Costa Rica": {
+    "code": "CR",
+    "offset": -6
+  },
+  "Croatia": {
+    "code": "HR",
+    "offset": 1
+  },
+  "Cuba": {
+    "code": "CU",
+    "offset": -5
+  },
+  "Cyprus": {
+    "code": "CY",
+    "offset": 2
+  },
+  "Czech Republic": {
+    "code": "CZ",
+    "offset": 1
+  },
+  "Democratic Republic of the Congo": {
+    "code": "CD",
+    "offset": 1
+  },
+  "Denmark": {
+    "code": "DK",
+    "offset": 1
+  },
+  "Djibouti": {
+    "code": "DJ",
+    "offset": 3
+  },
+  "Dominica": {
+    "code": "DM",
+    "offset": -4
+  },
+  "Dominican Republic": {
+    "code": "DO",
+    "offset": -4
+  },
+  "Ecuador": {
+    "code": "EC",
+    "offset": -5
+  },
+  "Egypt": {
+    "code": "EG",
+    "offset": 2
+  },
+  "El Salvador": {
+    "code": "SV",
+    "offset": -6
+  },
+  "Equatorial Guinea": {
+    "code": "GQ",
+    "offset": 1
+  },
+  "Eritrea": {
+    "code": "ER",
+    "offset": 3
+  },
+  "Estonia": {
+    "code": "EE",
+    "offset": 2
+  },
+  "Eswatini": {
+    "code": "SZ",
+    "offset": 2
+  },
+  "Ethiopia": {
+    "code": "ET",
+    "offset": 3
+  },
+  "Fiji": {
+    "code": "FJ",
+    "offset": 12
+  },
+  "Finland": {
+    "code": "FI",
+    "offset": 2
+  },
+  "France": {
+    "code": "FR",
+    "offset": 1
+  },
+  "Gabon": {
+    "code": "GA",
+    "offset": 1
+  },
+  "Gambia": {
+    "code": "GM",
+    "offset": 0
+  },
+  "Georgia": {
+    "code": "GE",
+    "offset": 4
+  },
+  "Germany": {
+    "code": "DE",
+    "offset": 1
+  },
+  "Ghana": {
+    "code": "GH",
+    "offset": 0
+  },
+  "Greece": {
+    "code": "GR",
+    "offset": 2
+  },
+  "Grenada": {
+    "code": "GD",
+    "offset": -4
+  },
+  "Guatemala": {
+    "code": "GT",
+    "offset": -6
+  },
+  "Guinea": {
+    "code": "GN",
+    "offset": 0
+  },
+  "Guinea-Bissau": {
+    "code": "GW",
+    "offset": 0
+  },
+  "Guyana": {
+    "code": "GY",
+    "offset": -4
+  },
+  "Haiti": {
+    "code": "HT",
+    "offset": -5
+  },
+  "Honduras": {
+    "code": "HN",
+    "offset": -6
+  },
+  "Hungary": {
+    "code": "HU",
+    "offset": 1
+  },
+  "Iceland": {
+    "code": "IS",
+    "offset": 0
+  },
+  "India": {
+    "code": "IN",
+    "offset": 5.5
+  },
+  "Indonesia": {
+    "code": "ID",
+    "offset": 7
+  },
+  "Iran": {
+    "code": "IR",
+    "offset": 3.5
+  },
+  "Iraq": {
+    "code": "IQ",
+    "offset": 3
+  },
+  "Ireland": {
+    "code": "IE",
+    "offset": 0
+  },
+  "Israel": {
+    "code": "IL",
+    "offset": 3
+  },
+  "Italy": {
+    "code": "IT",
+    "offset": 1
+  },
+  "Jamaica": {
+    "code": "JM",
+    "offset": -5
+  },
+  "Japan": {
+    "code": "JP",
+    "offset": 9
+  },
+  "Jordan": {
+    "code": "JO",
+    "offset": 3
+  },
+  "Kazakhstan": {
+    "code": "KZ",
+    "offset": 6
+  },
+  "Kenya": {
+    "code": "KE",
+    "offset": 3
+  },
+  "Kiribati": {
+    "code": "KI",
+    "offset": 12
+  },
+  "Korea (North)": {
+    "code": "KP",
+    "offset": 9
+  },
+  "Korea (South)": {
+    "code": "KR",
+    "offset": 9
+  },
+  "Kuwait": {
+    "code": "KW",
+    "offset": 3
+  },
+  "Kyrgyzstan": {
+    "code": "KG",
+    "offset": 6
+  },
+  "Laos": {
+    "code": "LA",
+    "offset": 7
+  },
+  "Latvia": {
+    "code": "LV",
+    "offset": 2
+  },
+  "Lebanon": {
+    "code": "LB",
+    "offset": 3
+  },
+  "Lesotho": {
+    "code": "LS",
+    "offset": 2
+  },
+  "Liberia": {
+    "code": "LR",
+    "offset": 0
+  },
+  "Libya": {
+    "code": "LY",
+    "offset": 2
+  },
+  "Liechtenstein": {
+    "code": "LI",
+    "offset": 1
+  },
+  "Lithuania": {
+    "code": "LT",
+    "offset": 2
+  },
+  "Luxembourg": {
+    "code": "LU",
+    "offset": 1
+  },
+  "Madagascar": {
+    "code": "MG",
+    "offset": 3
+  },
+  "Malawi": {
+    "code": "MW",
+    "offset": 2
+  },
+  "Malaysia": {
+    "code": "MY",
+    "offset": 8
+  },
+  "Maldives": {
+    "code": "MV",
+    "offset": 5
+  },
+  "Mali": {
+    "code": "ML",
+    "offset": 0
+  },
+  "Malta": {
+    "code": "MT",
+    "offset": 1
+  },
+  "Marshall Islands": {
+    "code": "MH",
+    "offset": 12
+  },
+  "Mauritania": {
+    "code": "MR",
+    "offset": 0
+  },
+  "Mauritius": {
+    "code": "MU",
+    "offset": 4
+  },
+  "Mexico": {
+    "code": "MX",
+    "offset": -6
+  },
+  "Micronesia": {
+    "code": "FM",
+    "offset": 10
+  },
+  "Moldova": {
+    "code": "MD",
+    "offset": 2
+  },
+  "Monaco": {
+    "code": "MC",
+    "offset": 1
+  },
+  "Mongolia": {
+    "code": "MN",
+    "offset": 8
+  },
+  "Montenegro": {
+    "code": "ME",
+    "offset": 1
+  },
+  "Morocco": {
+    "code": "MA",
+    "offset": 1
+  },
+  "Mozambique": {
+    "code": "MZ",
+    "offset": 2
+  },
+  "Myanmar": {
+    "code": "MM",
+    "offset": 6.5
+  },
+  "Namibia": {
+    "code": "NA",
+    "offset": 2
+  },
+  "Nauru": {
+    "code": "NR",
+    "offset": 12
+  },
+  "Nepal": {
+    "code": "NP",
+    "offset": 5.75
+  },
+  "Netherlands": {
+    "code": "NL",
+    "offset": 1
+  },
+  "New Zealand": {
+    "code": "NZ",
+    "offset": 12
+  },
+  "Nicaragua": {
+    "code": "NI",
+    "offset": -6
+  },
+  "Niger": {
+    "code": "NE",
+    "offset": 1
+  },
+  "Nigeria": {
+    "code": "NG",
+    "offset": 1
+  },
+  "North Macedonia": {
+    "code": "MK",
+    "offset": 1
+  },
+  "Norway": {
+    "code": "NO",
+    "offset": 1
+  },
+  "Oman": {
+    "code": "OM",
+    "offset": 4
+  },
+  "Pakistan": {
+    "code": "PK",
+    "offset": 5
+  },
+  "Palau": {
+    "code": "PW",
+    "offset": 9
+  },
+  "Panama": {
+    "code": "PA",
+    "offset": -5
+  },
+  "Papua New Guinea": {
+    "code": "PG",
+    "offset": 10
+  },
+  "Paraguay": {
+    "code": "PY",
+    "offset": -4
+  },
+  "Peru": {
+    "code": "PE",
+    "offset": -5
+  },
+  "Philippines": {
+    "code": "PH",
+    "offset": 8
+  },
+  "Poland": {
+    "code": "PL",
+    "offset": 1
+  },
+  "Portugal": {
+    "code": "PT",
+    "offset": 0
+  },
+  "Qatar": {
+    "code": "QA",
+    "offset": 3
+  },
+  "Romania": {
+    "code": "RO",
+    "offset": 2
+  },
+  "Russia": {
+    "code": "RU",
+    "offset": 3
+  },
+  "Rwanda": {
+    "code": "RW",
+    "offset": 2
+  },
+  "Saint Kitts and Nevis": {
+    "code": "KN",
+    "offset": -4
+  },
+  "Saint Lucia": {
+    "code": "LC",
+    "offset": -4
+  },
+  "Saint Vincent and the Grenadines": {
+    "code": "VC",
+    "offset": -4
+  },
+  "Samoa": {
+    "code": "WS",
+    "offset": 13
+  },
+  "San Marino": {
+    "code": "SM",
+    "offset": 1
+  },
+  "Sao Tome and Principe": {
+    "code": "ST",
+    "offset": 1
+  },
+  "Saudi Arabia": {
+    "code": "SA",
+    "offset": 3
+  },
+  "Senegal": {
+    "code": "SN",
+    "offset": 0
+  },
+  "Serbia": {
+    "code": "RS",
+    "offset": 1
+  },
+  "Seychelles": {
+    "code": "SC",
+    "offset": 4
+  },
+  "Sierra Leone": {
+    "code": "SL",
+    "offset": 0
+  },
+  "Singapore": {
+    "code": "SG",
+    "offset": 8
+  },
+  "Slovakia": {
+    "code": "SK",
+    "offset": 1
+  },
+  "Slovenia": {
+    "code": "SI",
+    "offset": 1
+  },
+  "Solomon Islands": {
+    "code": "SB",
+    "offset": 11
+  },
+  "Somalia": {
+    "code": "SO",
+    "offset": 3
+  },
+  "South Africa": {
+    "code": "ZA",
+    "offset": 2
+  },
+  "South Sudan": {
+    "code": "SS",
+    "offset": 3
+  },
+  "Spain": {
+    "code": "ES",
+    "offset": 1
+  },
+  "Sri Lanka": {
+    "code": "LK",
+    "offset": 5.5
+  },
+  "Sudan": {
+    "code": "SD",
+    "offset": 2
+  },
+  "Suriname": {
+    "code": "SR",
+    "offset": -3
+  },
+  "Sweden": {
+    "code": "SE",
+    "offset": 1
+  },
+  "Switzerland": {
+    "code": "CH",
+    "offset": 1
+  },
+  "Syria": {
+    "code": "SY",
+    "offset": 3
+  },
+  "Taiwan": {
+    "code": "TW",
+    "offset": 8
+  },
+  "Tajikistan": {
+    "code": "TJ",
+    "offset": 5
+  },
+  "Tanzania": {
+    "code": "TZ",
+    "offset": 3
+  },
+  "Thailand": {
+    "code": "TH",
+    "offset": 7
+  },
+  "Timor-Leste": {
+    "code": "TL",
+    "offset": 9
+  },
+  "Togo": {
+    "code": "TG",
+    "offset": 0
+  },
+  "Tonga": {
+    "code": "TO",
+    "offset": 13
+  },
+  "Trinidad and Tobago": {
+    "code": "TT",
+    "offset": -4
+  },
+  "Tunisia": {
+    "code": "TN",
+    "offset": 1
+  },
+  "Turkey": {
+    "code": "TR",
+    "offset": 3
+  },
+  "Turkmenistan": {
+    "code": "TM",
+    "offset": 5
+  },
+  "Tuvalu": {
+    "code": "TV",
+    "offset": 12
+  },
+  "Uganda": {
+    "code": "UG",
+    "offset": 3
+  },
+  "Ukraine": {
+    "code": "UA",
+    "offset": 3
+  },
+  "United Arab Emirates": {
+    "code": "AE",
+    "offset": 4
+  },
+  "United Kingdom": {
+    "code": "GB",
+    "offset": 0
+  },
+  "United States": {
+    "code": "US",
+    "offset": -5
+  },
+  "Uruguay": {
+    "code": "UY",
+    "offset": -3
+  },
+  "Uzbekistan": {
+    "code": "UZ",
+    "offset": 5
+  },
+  "Vanuatu": {
+    "code": "VU",
+    "offset": 11
+  },
+  "Vatican City": {
+    "code": "VA",
+    "offset": 1
+  },
+  "Venezuela": {
+    "code": "VE",
+    "offset": -4
+  },
+  "Vietnam": {
+    "code": "VN",
+    "offset": 7
+  },
+  "Yemen": {
+    "code": "YE",
+    "offset": 3
+  },
+  "Zambia": {
+    "code": "ZM",
+    "offset": 2
+  },
+  "Zimbabwe": {
+    "code": "ZW",
+    "offset": 2
+  }
+}
+;
+
+    var matchedCountries = [];
+
+    function showTimeAndFlag() {
+      var timeContainer = document.getElementById("timeContainer");
+      timeContainer.innerHTML = "";
+
+      for (var country in timeZones) {
+        var timeZone = timeZones[country];
+        var flagIcon = document.createElement("i");
+        flagIcon.classList.add("flag-icon", "flag-icon-" + timeZone.code.toLowerCase());
+
+        var timeElement = document.createElement("div");
+        timeElement.classList.add("country-time");
+
+        var nameElement = document.createElement("span");
+        nameElement.classList.add("country-time__name");
+        nameElement.textContent = country;
+
+        var flagContainer = document.createElement("span");
+        flagContainer.classList.add("country-time__flag");
+        flagContainer.appendChild(flagIcon);
+
+        var timeValueElement = document.createElement("span");
+        timeValueElement.classList.add("country-time__time");
+        timeValueElement.id = "time_" + country.replace(/ /g, "_");
+        timeValueElement.textContent = "--:--:--";
+
+        timeElement.appendChild(nameElement);
+        timeElement.appendChild(flagContainer);
+        timeElement.appendChild(timeValueElement);
+
+        timeContainer.appendChild(timeElement);
+      }
+
+      updateTimes();
+      setInterval(updateTimes, 1000);
+    }
+
+    function updateTimes() {
+      for (var country in timeZones) {
+        var timeZone = timeZones[country];
+        var gmtOffset = timeZone.offset;
+        var browserOffset = new Date().getTimezoneOffset() / 60;
+        var totalOffset = gmtOffset + browserOffset;
+        var hours = Math.floor(totalOffset);
+        var minutes = Math.floor((totalOffset - hours) * 60);
+        var currentTime = new Date();
+        currentTime.setHours(currentTime.getHours() + hours);
+        currentTime.setMinutes(currentTime.getMinutes() + minutes);
+        var formattedTime = currentTime.toLocaleTimeString();
+        document.getElementById("time_" + country.replace(/ /g, "_")).textContent = formattedTime;
+      }
+    }
+
+    function filterByLetter(letter) {
+  var countryTimesDiv = document.getElementById('country-times');
+  countryTimesDiv.innerHTML = '';
+
+  for (var country in timeZones) {
+    if (country.charAt(0).toUpperCase() === letter) {
+      var timeZone = timeZones[country];
+      var flagIcon = document.createElement("i");
+      flagIcon.classList.add("flag-icon", "flag-icon-" + timeZone.code.toLowerCase());
+
+      var timeElement = document.createElement("div");
+      timeElement.classList.add("country-time");
+
+      var nameElement = document.createElement("span");
+      nameElement.classList.add("country-time__name");
+      nameElement.textContent = country;
+
+      var flagContainer = document.createElement("span");
+      flagContainer.classList.add("country-time__flag");
+      flagContainer.appendChild(flagIcon);
+
+      var timeValueElement = document.createElement("span");
+      timeValueElement.classList.add("country-time__time");
+      timeValueElement.id = "time_" + country.replace(/ /g, "_");
+      timeValueElement.textContent = "--:--:--";
+
+      timeElement.appendChild(nameElement);
+      timeElement.appendChild(flagContainer);
+      timeElement.appendChild(timeValueElement);
+
+      countryTimesDiv.appendChild(timeElement);
+    }
+ 
+  }
+
+  updateTimes();
+}
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      showTimeAndFlag();
+
+      var alphabetButtonsDiv = document.getElementById('alphabet-buttons');
+      for (var i = 65; i <= 90; i++) {
+        var letter = String.fromCharCode(i);
+        var button = document.createElement('button');
+        button.textContent = letter;
+        button.addEventListener('click', (function(letter) {
+          return function() {
+            filterByLetter(letter);
+          };
+        })(letter));
+        alphabetButtonsDiv.appendChild(button);
+      }
+    });
+
+
+    
+  </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
+      <ul class="nav-links">
+        <li><a href="https://purnorup.com/">Home</a></li>
+        <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+        <li><a href="case-flow.html">Case Flow</a></li>
+        <li><a href="cropify.html">Cropify</a></li>
+        <li><a href="challenging-bricks.html">Play Games</a></li>
+        <li><a href="age-nexus.html">Age Nexus</a></li>
+        <li><a href="dictionary.html">Dictionary</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+
+  <h1>Local Time of 195 country. Time calculated based on your device time </h1>
+
+  <div id="alphabet">
+    <div id="alphabet-buttons"></div>
+  </div>
+
+  <div id="country-times"></div>
+  <div id="timeContainer"></div>
+</body>
+</html>
