@@ -950,21 +950,22 @@ a {
       setInterval(updateTimes, 1000);
     }
 
-    function updateTimes() {
-      for (var country in timeZones) {
-        var timeZone = timeZones[country];
-        var gmtOffset = timeZone.offset;
-        var browserOffset = new Date().getTimezoneOffset() / 60;
-        var totalOffset = gmtOffset + browserOffset;
-        var hours = Math.floor(totalOffset);
-        var minutes = Math.floor((totalOffset - hours) * 60);
-        var currentTime = new Date();
-        currentTime.setHours(currentTime.getHours() + hours);
-        currentTime.setMinutes(currentTime.getMinutes() + minutes);
-        var formattedTime = currentTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
-        document.getElementById("time_" + country.replace(/ /g, "_")).textContent = formattedTime;
-      }
-    }
+function updateTimes() {
+  for (var country in timeZones) {
+    var timeZone = timeZones[country];
+    var gmtOffset = timeZone.offset;
+    var browserOffset = new Date().getTimezoneOffset() / 60;
+    var totalOffset = gmtOffset + browserOffset;
+    var hours = Math.floor(totalOffset);
+    var minutes = Math.floor((totalOffset - hours) * 60);
+    var currentTime = new Date();
+    currentTime.setHours(currentTime.getHours() + hours);
+    currentTime.setMinutes(currentTime.getMinutes() + minutes);
+    var formattedTime = currentTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
+    document.getElementById("time_" + country.replace(/ /g, "_")).textContent = formattedTime;
+  }
+}
+
 
     function filterByLetter(letter) {
   var countryTimesDiv = document.getElementById('country-times');
