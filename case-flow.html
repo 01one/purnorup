@@ -124,6 +124,25 @@ html {
   cursor: pointer;
 }
 
+
+#count-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.count-label {
+    margin: 0 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.count-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+	
 footer {
       margin-top: auto;
       text-align: center;
@@ -166,7 +185,12 @@ footer {
 
 </div>
 
+<div id="count-container">
+  <p class="count-label">Word Count: <span id="wordCount">0</span></p>
+  <p class="count-label">Character Count: <span id="charCount">0</span></p>
+</div>
 
+	
 <script>
 window.capitalize = function() {
   var text_formating = document.getElementById("input_text").value;
@@ -209,6 +233,23 @@ function copyToClipboard(text=document.getElementById("input_text").value) {
   clipboard.select();
   document.execCommand("copy");
   document.body.removeChild(clipboard);
+}
+
+ window.onload = function() {
+  document.getElementById("input_text").addEventListener("input", countWordsAndCharacters);
+}
+
+function countWordsAndCharacters() {
+  var text = document.getElementById("input_text").value.trim();
+  var wordCount = 0;
+  var charCount = text.length;
+
+  if (text !== "") {
+    wordCount = text.match(/\b\w+\b/g).length;
+  }
+
+  document.getElementById("wordCount").textContent = wordCount;
+  document.getElementById("charCount").textContent = charCount;
 }
 
 </script>
