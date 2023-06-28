@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
  <meta name="lang" content="en">
- <meta name="description" content="Age Nexus is an age calculator that helps you determine your age, total weeks, total days, and next birthday. Calculate your age easily with this simple tool.">
+ <meta name="description" content="Age Nexus is an age calculator that helps you determine your age and next birthday. Calculate your age easily with this simple tool.">
 <meta name="viewport" content="width=device-width">
  <title>Age Nexus | Connecting You to Your Age</title>
 <link rel="shortcut icon" href="logo_icon.ico">
@@ -295,7 +295,7 @@ h1 {
             var resultDays = totalDays + " days";
             calculate_year=currentYear
             var resultElement = document.getElementById("result");
-            resultElement.innerHTML = "Age: " + result + "<br>Total Weeks: " + resultWeeks + "<br>Total Days: " + resultDays;
+            resultElement.innerHTML = "Age: " + result; // + "<br>Total Weeks: " + resultWeeks + "<br>Total Days: " + resultDays;
             if (currentMonth > inputMonth || (currentMonth == inputMonth && currentDay > inputDate)) {
                 calculate_year = currentYear + 1;
             }            
