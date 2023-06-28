@@ -177,6 +177,9 @@ body {
         // Event listeners for paddle movement
         document.addEventListener('keydown', keyDownHandler);
         document.addEventListener('keyup', keyUpHandler);
+        document.addEventListener("touchstart", touchStartHandler);
+        document.addEventListener("touchend", touchEndHandler);
+        
 
         function keyDownHandler(e) {
             if (e.key === 'Right' || e.key === 'ArrowRight') {
@@ -193,6 +196,22 @@ body {
                 leftPressed = false;
             }
         }
+
+
+function touchStartHandler(e) {
+  var touchX = e.touches[0].clientX;
+  if (touchX < canvas.width / 2) {
+    leftPressed = true;
+  } else {
+    rightPressed = true;
+  }
+}
+
+function touchEndHandler(e) {
+  leftPressed = false;
+  rightPressed = false;
+}
+
 
         // Collision detection
         function collisionDetection() {
