@@ -262,50 +262,67 @@ h1 {
             yearInput.disabled = false;
         }
 
-        function calculateAge() {
-            var inputDate = parseInt(document.getElementById("date").value);
-            var inputMonth = parseInt(document.getElementById("month").value);
-            var inputYear = parseInt(document.getElementById("year").value);
+function calculateAge() {
+  var inputDate = parseInt(document.getElementById("date").value);
+  var inputMonth = parseInt(document.getElementById("month").value);
+  var inputYear = parseInt(document.getElementById("year").value);
 
-            var currentDate = new Date();
-            var currentYear = currentDate.getFullYear();
-            var currentMonth = currentDate.getMonth() + 1;
-            var currentDay = currentDate.getDate();
+  var currentDate = new Date();
+  var currentYear = currentDate.getFullYear();
+  var currentMonth = currentDate.getMonth() + 1;
+  var currentDay = currentDate.getDate();
 
-            var ageYears = currentYear - inputYear;
-            var ageMonths = currentMonth - inputMonth;
-            var ageDays = currentDay - inputDate;
+  var ageYears = currentYear - inputYear;
+  var ageMonths = currentMonth - inputMonth;
+  var ageDays = currentDay - inputDate;
 
-            if (ageDays < 0) {
-                ageMonths--;
-                var daysInPreviousMonth = new Date(currentYear, currentMonth - 1, 0).getDate();
-                ageDays += daysInPreviousMonth;
-            }
+  if (ageDays < 0) {
+    ageMonths--;
+    var daysInPreviousMonth = new Date(currentYear, currentMonth - 1, 0).getDate();
+    ageDays += daysInPreviousMonth;
+  }
 
-            if (ageMonths < 0) {
-                ageYears--;
-                ageMonths += 12;
-            }
+  if (ageMonths < 0) {
+    ageYears--;
+    ageMonths += 12;
+  }
 
-            var totalDays = ageYears * 365 + ageMonths * 30 + ageDays;
-            var totalWeeks = Math.floor(totalDays / 7);
+  var totalDays = ageYears * 365 + ageMonths * 30 + ageDays;
+  var totalWeeks = Math.floor(totalDays / 7);
 
-            var result = ageYears + " years, " + ageMonths + " months, " + ageDays + " days";
-            var resultWeeks = totalWeeks + " weeks";
-            var resultDays = totalDays + " days";
-            calculate_year=currentYear
-            var resultElement = document.getElementById("result");
-            resultElement.innerHTML = "Age: " + result; // + "<br>Total Weeks: " + resultWeeks + "<br>Total Days: " + resultDays;
-            if (currentMonth > inputMonth || (currentMonth == inputMonth && currentDay > inputDate)) {
-                calculate_year = currentYear + 1;
-            }            
-            var nextBirthday = new Date(calculate_year, inputMonth, inputDate);
-            var timeDifference = nextBirthday.getTime() - currentDate.getTime();
-            var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
+  var result = ageYears + " years, " + ageMonths + " months, " + ageDays + " days";
+  var resultWeeks = totalWeeks + " weeks";
+  var resultDays = totalDays + " days";
 
-          // resultElement.innerHTML += "<br>Next Birthday: " + daysDifference + " days From Now";
-       
-       
+  var resultElement = document.getElementById("result");
+  resultElement.innerHTML = "Age: " + result;
+
+  var nextBirthdayYear = currentYear;
+  var nextBirthday = new Date(nextBirthdayYear, inputMonth - 1, inputDate);
+
+  if (nextBirthday < currentDate) {
+    nextBirthdayYear++;
+    nextBirthday = new Date(nextBirthdayYear, inputMonth - 1, inputDate);
+  }
+
+  var timeDifference = nextBirthday.getTime() - currentDate.getTime();
+  var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24))+1;
+
+  if (
+    inputMonth > currentMonth ||
+    (inputMonth === currentMonth && inputDate > currentDay)
+  ) {
+    var isLeapYear =
+      (nextBirthdayYear % 4 === 0 && nextBirthdayYear % 100 !== 0) ||
+      nextBirthdayYear % 400 === 0;
+
+    if (isLeapYear) {
+      daysDifference--;
+    }
+  }
+
+  resultElement.innerHTML += "<br>Next Birthday: " + daysDifference + " days From Now";
+}
        
        
         }
