@@ -301,9 +301,9 @@ h1 {
             }            
             var nextBirthday = new Date(calculate_year, inputMonth, inputDate);
             var timeDifference = nextBirthday.getTime() - currentDate.getTime();
-            var daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+            var daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
 
-           // resultElement.innerHTML += "<br>Next Birthday: " + daysDifference + " days From Now";
+           resultElement.innerHTML += "<br>Next Birthday: " + daysDifference + " days From Now";
        
        
        
