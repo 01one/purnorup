@@ -286,8 +286,8 @@ function calculateAge() {
     ageYears--;
     ageMonths += 12;
   }
-
-  var totalDays = ageYears * 365 + ageMonths * 30 + ageDays;
+  var birthdate = new Date(inputYear, inputMonth - 1, inputDate);
+  var totalDays = Math.floor((currentDate - birthdate) / (1000 * 60 * 60 * 24));
   var totalWeeks = Math.floor(totalDays / 7);
 
   var result = ageYears + " years, " + ageMonths + " months, " + ageDays + " days";
@@ -320,10 +320,9 @@ function calculateAge() {
       daysDifference--;
     }
   }
-
+  resultElement.innerHTML = "Age: " + result + "<br>Total Weeks: " + resultWeeks + "<br>Total Days: " + resultDays;
   resultElement.innerHTML += "<br>Next Birthday: " + daysDifference + " days From Now";
 }
-       
        
    
     </script>
