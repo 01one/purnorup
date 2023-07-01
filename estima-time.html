@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="Estimate various events and measurements based on a given number of days with EstimaTime,  timeline calculator.">
+    <meta name="keywords" content="timeline calculator, estimation tool, event tracker, measurement calculator, time analytics">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstimaTime: Your Timeline Calculator</title>
+
+   
+
+    <link rel="shortcut icon" href="logo_icon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-GE7J2XCV7R');
+    </script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "hp87s8o7eg");
+    </script>
+
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tinos&display=swap');
+
+body {
+font-family: 'Niconne', cursive;
+font-size:xx-large;
+background-color: #ff009c;
+  background-image:
+    linear-gradient(45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.05) 75%);
+}
+
+
+
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff009c;
+}
+
+
+a {
+    background: rgba(31, 157, 129, 0.883);
+    color:#5bf6e4;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+  text-decoration: none;
+  ;
+}
+
+.nav-links li {
+  font-family: 'Tinos', serif;
+  background-color: #d5ddd714;
+  display: inline-block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin-left: .3vw;
+  color: white;
+   font-size: 20px;
+}
+
+.nav-links li:hover  {
+  background: rgba(31, 157, 129, 0.883);
+  transform: scale(1.1);
+  box-shadow: 0 0 5px 0 #00000014;
+}
+
+
+
+
+
+
+
+
+        .container {
+            max-width:70% width;
+            margin: 0 auto;
+            background-color: #ffffff1d;
+            padding: 20px;
+            border-radius: 8px;
+            
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    word-wrap: break-word; 
+    box-sizing: border-box; 
+}
+
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #e93cb8;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #results {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .result-item {
+  padding: 20px;
+  border-radius: 8px;
+  background: #2f8b36;
+  display: flex;
+  align-items: center;
+}
+
+.result-item .result-icon,
+.result-item .result-text {
+  margin-right: 10px;
+}
+
+.result-item:nth-child(even) {
+  background-color: #f5f5f50f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.result-item:nth-child(odd) {
+  background-color: #eaeaea18;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <img src="logo.png" alt="Logo" width="50px" height="50px" style="background-color: transparent;">
+      <ul class="nav-links">
+        <li><a href="https://purnorup.com/">Home</a></li>
+        <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+        <li><a href="case-flow.html">Case Flow</a></li>
+        <li><a href="time.html">CountryTime</a></li>
+        <li><a href="challenging-bricks.html">Play Games</a></li>
+        <li><a href="age-nexus.html">Age Nexus</a></li>
+        <li><a href="dictionary.html">Dictionary</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+
+    <div class="container">
+        <h1>Estimation On Timeline Events</h1>
+        <label for="ageInput">Enter number of days:</label>
+        <input type="text" id="ageInput">
+        <button onclick="calculate()">Calculate</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+
+function formatNumber(number) {
+    if (number >= 1e12) {
+        return (number / 1e12).toFixed(2) + "Trillion";
+    }
+    if (number >= 1e9) {
+        return (number / 1e9).toFixed(2) + "Billion";
+    }
+    if (number >= 1e6) {
+        return (number / 1e6).toFixed(2) + "Million";
+    }
+    if (number >= 1e3) {
+        return (number / 1e3).toFixed(2) + "Kilo";
+    }
+    return number.toString();
+}
+
+function estimateCalculations(ageInDays) {
+    var calculations = [];
+
+    var oxygenIntake = ageInDays * 566; 
+    calculations.push({
+        icon: "fas fa-lungs",
+        text: "Oxygen Intake: " + formatNumber(oxygenIntake) +" Liters"
+    });
+
+    var waterConsumption = ageInDays * 2;  
+    calculations.push({
+        icon: "fas fa-tint",
+        text: "Water Consumption: " + formatNumber(waterConsumption) + " Liters"
+    });
+
+    var cellDeath = Math.floor(ageInDays *60e9);
+    calculations.push({
+        icon: "fas fa-skull",
+        text: "Cell Death: " + formatNumber(cellDeath) 
+    });
+
+    var caloriesBurned = ageInDays *2352;
+    calculations.push({
+        icon: "fas fa-fire",
+        text: "Calories Burned: " + formatNumber(caloriesBurned) +" calories"
+    });
+
+    var hoursSlept = ageInDays * 8;
+    calculations.push({
+        icon: "fas fa-moon",
+        text: "Hours Slept: " + formatNumber(hoursSlept) +" hours"
+    });
+
+    var hairGrowth = ageInDays * 0.04;
+    calculations.push({
+        icon: "fas fa-cut",
+        text: "Hair Growth: " + hairGrowth+ " centimeter"
+    });
+
+    var heartbeats = ageInDays * 115200;
+    calculations.push({
+        icon: "fas fa-heartbeat",
+        text: "Heartbeats: " + formatNumber(heartbeats) 
+    });
+
+    var breathsTaken = ageInDays *23040;
+    calculations.push({
+        icon: "fas fa-lungs",
+        text: "Breaths Taken: " + formatNumber(breathsTaken) 
+    });
+
+
+    var brainCellsLost = ageInDays*10000;
+    calculations.push({
+        icon: "fas fa-brain",
+        text: "Brain Cells Lost: " + formatNumber(brainCellsLost)
+    });
+    var nailGrowth = ageInDays*0.01;
+    calculations.push({
+        icon: "fas fa-hand-rock",
+        text: "Nail Growth: " + formatNumber(nailGrowth) +' centimeter'
+    });
+
+    return calculations;
+}
+
+
+
+function getIconHtml(icon) {
+    return '<i class="' + icon + ' result-icon"></i>';
+}
+
+function calculate() {
+    var ageInput = document.getElementById("ageInput");
+    var ageInDays = parseInt(ageInput.value);
+
+    if (!isNaN(ageInDays)) {
+        var results = document.getElementById("results");
+        results.innerHTML = "";
+
+        var calculations = estimateCalculations(ageInDays);
+        calculations.forEach(function (calculation, index) {
+            var resultItem = document.createElement("div");
+            resultItem.className = "result-item";
+
+            /*
+            if (index % 2 === 0) {
+                resultItem.style.backgroundColor = "#00ff57";
+            } else {
+                resultItem.style.backgroundColor = "#00d33596";
+            }
+*/
+
+            var iconHtml = getIconHtml(calculation.icon);
+            var textHtml = '<span class="result-text">' + calculation.text + '</span>';
+
+            resultItem.innerHTML = iconHtml + textHtml;
+            results.appendChild(resultItem);
+        });
+    }
+}
+
+    </script>
+</body>
+</html>
