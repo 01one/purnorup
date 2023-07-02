@@ -74,7 +74,6 @@ textarea {
 }
 
 button {
-  display: flex-grow;
   font-family: 'Spectral';
   justify-content: center;
   width: 200px;
@@ -85,7 +84,7 @@ button {
   background-color: rgba(167, 141, 141, 0.124);
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.305), 20px 20px 12px rgba(90, 83, 87, 0.293);
   color: rgba(156, 138, 138);
-  font-size: 2vw;
+  font-size: 27px;
   cursor: pointer;
   transition: 0.4s;
 }
@@ -97,6 +96,12 @@ button:hover {
   box-shadow: 0 0 5px 0 #00000014;
 }
 
+
+#button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 html {
   width: 100%;
@@ -173,15 +178,18 @@ footer {
   
 <h1 style="display: flex; justify-content: center;">Format your text</h1>
 <div style="display: flex; justify-content: center;">
-<textarea  id="input_text" placeholder="Type or paste your text here" ></textarea></div>
-<div> </div>
+<textarea  id="input_text" placeholder="Type or paste your text here" ></textarea>
+</div>
+<div id="button-container"> 
 
-<div style="display: flex;justify-content: center;">
+<div>
 <button type="button" onclick="capitalize()">CAPITALIZE</button>
 <button type="button" onclick="LowerCase()">lowercase</button>
 <button type="button" onclick="titleCase()">TitleCase</button>
 <button type="button" onclick="SentenceCapitalize()">Sentence</button>
 <button onclick="copyToClipboard()">Clipboard</button>
+</div>
+</div>
 
 </div>
 
