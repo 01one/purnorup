@@ -211,20 +211,23 @@ window.titleCase = function() {
  }
   
 
-function capitalizeSentences(str) {
-	var str=str.toLowerCase()
-  var sentences = str.split(". ");
+ function capitalizeSentences(str) {
+  var str = str.toLowerCase();
+  var sentences = str.split(/\.\s+/);
 
   for (let i = 0; i < sentences.length; i++) {
-    sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].slice(1);
+    sentences[i] = sentences[i].trim();
+    if (sentences[i].length > 0) {
+      sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].slice(1);
+    }
   }
-  return sentences.join(". ");
+  return sentences.join('. ');
 }
+
 window.SentenceCapitalize = function() {
   var text_formating = capitalizeSentences(document.getElementById("input_text").value);
   document.getElementById("input_text").value = text_formating;
- }
-
+}
 
 function copyToClipboard(text=document.getElementById("input_text").value) {
   var clipboard = document.createElement("textarea");
