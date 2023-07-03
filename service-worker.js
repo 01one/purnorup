@@ -7,6 +7,7 @@ const filesToCache = [
   'challenging-bricks.html',
   'age-nexus.html',
   'dictionary.html',
+  'txtPad.html',
   'case-flow.html',
   'cropify.html',
   'about.html',
