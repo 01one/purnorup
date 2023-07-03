@@ -42,14 +42,6 @@
             saveData();
         });
 
-        textArea.addEventListener('keydown', function (event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                textArea.value += '\n';
-                saveData();
-            }
-        });
-
         function saveData() {
             const text = textArea.value;
             localStorage.setItem('txtPadData', text);
