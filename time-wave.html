@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="lang" content="en">
+    <title>Time Wave - A Dynamic Calendar Experience</title>
+    <meta name="description"
+        content="Time Wave is a modern and visually captivating calendar app that offers a seamless and flowing experience for efficient time management.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="logo_icon.ico">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GE7J2XCV7R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-GE7J2XCV7R');
+    </script>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "hp87s8o7eg");
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0e3bc570;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #355e3b;
+        }
+
+        a {
+            background: rgba(31, 157, 129, 0.883);
+            color: #5bf6e4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .nav-links li {
+            background-color: #d5ddd714;
+            display: inline-block;
+            padding: 10px 10px;
+            border-radius: 10px;
+            margin-left: .3vw;
+            color: white;
+            font-size: 20px;
+        }
+
+        .nav-links li:hover {
+            background: rgba(31, 157, 129, 0.883);
+            transform: scale(1.1);
+            box-shadow: 0 0 5px 0 #00000014;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-rows: auto auto 1fr;
+            gap: 10px;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+
+        .weekday {
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            color: #221be9;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .day {
+            text-align: center;
+            font-size: xx-large;
+            padding: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .day:hover {
+            background-color: #f5f5f5;
+            color: black;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .today {
+            background-color: #00a318;
+            color: #212424;
+            font-weight: bold;
+        }
+
+        .past-day {
+            background-color: rgb(240, 17, 17);
+        }
+
+        .future-day {
+            background-color: rgb(69, 129, 69);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <img src="logo.png" alt="Purnorup Logo" width="50px" height="50px" style="background-color: transparent;">
+        <ul class="nav-links">
+            <li><a href="https://purnorup.com/">Home</a></li>
+            <li><a href="time.html">Country Time</a></li>
+            <li><a href="elegant-pixel.html">Elegant Pixel</a></li>
+            <li><a href="case-flow.html">Case Converter</a></li>
+            <li><a href="txtPad.html">txtPad</a></li>
+            <li><a href="dictionary.html">Dictionary</a></li>
+            <li><a href="age-nexus.html">Age Nexus</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+
+    <div class="calendar">
+        <div class="header">July 2023</div>
+        <div class="weekdays">
+            <div class="weekday">Sun</div>
+            <div class="weekday">Mon</div>
+            <div class="weekday">Tue</div>
+            <div class="weekday">Wed</div>
+            <div class="weekday">Thu</div>
+            <div class="weekday">Fri</div>
+            <div class="weekday">Sat</div>
+        </div>
+        <div class="days"></div>
+    </div>
+
+    <script>
+        function updateCalendar() {
+            const currentDate = new Date();
+
+            const numDays = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+            const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+
+            const daysContainer = document.querySelector('.days');
+            daysContainer.innerHTML = '';
+
+            for (let i = 0; i < firstDay; i++) {
+                const day = document.createElement('div');
+                day.classList.add('day', 'other-month');
+                day.textContent = '';
+                daysContainer.appendChild(day);
+            }
+
+            for (let i = 1; i <= numDays; i++) {
+                const day = document.createElement('div');
+                day.classList.add('day');
+                day.textContent = i;
+
+                if (i < currentDate.getDate() && currentDate.getMonth() === new Date().getMonth() && currentDate.getFullYear() === new Date().getFullYear()) {
+                    day.classList.add('past-day');
+                } else if (i > currentDate.getDate() && currentDate.getMonth() === new Date().getMonth() && currentDate.getFullYear() === new Date().getFullYear()) {
+                    day.classList.add('future-day');
+                } else if (i === currentDate.getDate() && currentDate.getMonth() === new Date().getMonth() && currentDate.getFullYear() === new Date().getFullYear()) {
+                    day.classList.add('today');
+                }
+
+                if (
+                    i === currentDate.getDate() &&
+                    currentDate.getMonth() === new Date().getMonth() &&
+                    currentDate.getFullYear() === new Date().getFullYear()
+                ) {
+                    day.classList.add('today');
+                }
+
+                daysContainer.appendChild(day);
+            }
+        }
+
+        let previousDate = new Date();
+
+        function checkDateChange() {
+            const currentDate = new Date();
+            if (currentDate.getDate() !== previousDate.getDate() ||
+                currentDate.getMonth() !== previousDate.getMonth() ||
+                currentDate.getFullYear() !== previousDate.getFullYear()) {
+                updateCalendar();
+                previousDate = currentDate;
+            }
+        }
+
+        updateCalendar();
+        setInterval(checkDateChange, 1000);
+    </script>
+</body>
+
+</html>
