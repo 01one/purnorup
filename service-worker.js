@@ -1,4 +1,4 @@
-const cacheName = 'purnorup-cache-v2.6.1.4';
+const cacheName = 'purnorup-cache-v2.6.1.5';
 const filesToCache = [
   '/',
   'logo.png',
