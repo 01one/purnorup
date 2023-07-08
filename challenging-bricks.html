@@ -135,7 +135,14 @@ body {
         let dy = -xy; // Increase ball speed
 
         const ballRadius = 10;
-        let paddleWidth = canvas.width * 0.15;
+        let paddleWidth;
+
+          if (canvas.width / canvas.height < 1) {
+            paddleWidth = canvas.height / ((canvas.width * 0.15) * 0.1);
+          } else {
+            paddleWidth = Math.floor(canvas.width * 0.15, 100);
+          }
+	    
         let paddleHeight = 15;
         let paddleX = (canvas.width - paddleWidth) / 2;
         let paddleXdx=15;
