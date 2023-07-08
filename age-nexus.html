@@ -317,6 +317,8 @@
   </style>
   <script>
     var shareText='';
+    var shareButton = null;
+    
     function updateDateRange() {
       var monthInput = document.getElementById("month");
       var dateInput = document.getElementById("date");
@@ -401,11 +403,13 @@
 
       shareText = "I calculated my age using Age Nexus. My age is " + result + ".";
 
-      var shareButton = document.createElement("button");
-      shareButton.innerHTML = "Share With Friends";
-      shareButton.onclick = shareContent;
-      shareButton.classList.add("share-button");
-      document.getElementById("share").appendChild(shareButton);
+      if (!shareButton) {
+        shareButton = document.createElement("button");
+        shareButton.innerHTML = "Share";
+        shareButton.onclick = shareContent;
+        shareButton.classList.add("share-button");
+        document.getElementById("share").appendChild(shareButton);
+      }
 
     }
 
