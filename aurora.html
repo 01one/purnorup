@@ -23,282 +23,54 @@
         "dateModified": "2023-07-09"
     }
     </script>
-
-
     <style>
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
+        @keyframes glowing {
+            0% { color: #fff; text-shadow: 0 0 5px #fff; }
+            50% { color: #ff0; text-shadow: 0 0 20px #ff0; }
+            100% { color: #fff; text-shadow: 0 0 5px #fff; }
         }
-
-        @keyframes fade-out {
-            0% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0;
-            }
-        }
-
-        @keyframes clear-animation {
-            0% {
-                filter: blur(10px);
-                opacity: 0;
-            }
-
-            100% {
-                filter: blur(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes shine-animation {
-            0% {
-                transform: scale(0.8);
-            }
-
-            50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(0.8);
-            }
-        }
-
+        
         .spiritual-animation {
+          font-size: 200px;
             animation: glowing 2s infinite;
             display: inline-block;
         }
-
-        .positive-words-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            display: flex;
-            flex-wrap: wrap;
-            align-content: center;
-            justify-content: center;
-            font-family: Arial, sans-serif;
-        }
-
-        .positive-word {
-            margin: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 100px;
-            min-height: 50px;
-            background-color: #f2f2f2;
-            border-radius: 5px;
-            animation-duration: 1s;
-            animation-fill-mode: both;
-        }
-
-        .fade-in-animation {
-            animation-name: fade-in;
-        }
-
-        .fade-out-animation {
-            animation-name: fade-out;
-        }
-
-        .clear-animation {
-            animation-name: clear-animation;
-        }
-
-        .shine-animation {
-            animation-name: shine-animation;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
-        }
     </style>
 </head>
-
 <body>
-    <div class="positive-words-container"></div>
+    <div id="positive-words"></div>
 
     <script>
-        var words = [
-            'Joy',
-            'Love',
-            'Happiness',
-            'Success',
-            'Gratitude',
-            'Hope',
-            'Kindness',
-            'Peace',
-            'Abundance',
-            'Bliss',
-            'Inspiration',
-            'Courage',
-            'Confidence',
-            'Empowerment',
-            'Belief',
-            'Passion',
-            'Creativity',
-            'Resilience',
-            'Motivation',
-            'Growth',
-            'Serenity',
-            'Generosity',
-            'Purpose',
-            'Determination',
-            'Optimism',
-            'Dreams',
-            'Faith',
-            'Transformation',
-            'Positivity',
-            'Balance',
-            'Progress',
-            'Harmony',
-            'Unity',
-            'Encouragement',
-            'Wisdom',
-            'Compassion',
-            'Adventure',
-            'Graciousness',
-            'Perseverance',
-            'Patience',
-            'Radiance',
-            'Serendipity',
-            'Integrity',
-            'Appreciation',
-            'Brilliance',
-            'Liberation',
-            'Reflection',
-            'Trust',
-            'Simplicity',
-            'Forgiveness',
-            'Laughter',
-            'Blessings',
-            'Authenticity',
-            'Empathy',
-            'Wellness',
-            'Enlightenment',
-            'Vitality',
-            'Curiosity',
-            'Resilience',
-            'Bliss',
-            'Thankfulness',
-            'Wonder',
-            'Honor',
-            'Imagination',
-            'Sparkle',
-            'Inspiration',
-            'Joyfulness',
-            'Grace',
-            'Friendship',
-            'Miracles',
-            'Harmony',
-            'Radiance',
-            'Success',
-            'Expansion',
-            'Zeal',
-            'Connection',
-            'Triumph',
-            'Healing',
-            'Liberation',
-            'Adventure',
-            'Flourishing',
-            'Tranquility',
-            'Belonging',
-            'Elevation',
-            'Hopefulness',
-            'Authenticity',
-            'Magic',
-            'Empowerment',
-            'Confidence',
-            'Faithfulness',
-            'Encouragement',
-            'Resilience',
-            'Gratefulness',
-            'Passion',
-            'Resilience',
-            'Joyfulness',
-            'Brilliance',
-            'Achievement',
-            'Radiance'
+ var words = [
+            'I can ',
+            'I belive I can',
+            'I have that confidence',
+            'I will win',
+            'I am going to achieve that',
+            'I am unstoppable',
+            'I do not care',
+            'I have that capability',
+            'I love me',
+            'I am going to win',
+            'I am the winner',
+            'I will do eveything I can',
+            'I will raise again when I fall',
+            'I am the super power',
+            'I can',
+            'I am going to shine like the burning star'
         ];
-
-
-        function calculateFontSize(wordLength) {
-            var multiplier = 5;
-            var baseFontSize = 16;
-            return baseFontSize + (wordLength * multiplier);
-        }
-
-        function createPositiveWordElement(word) {
-            var positiveWord = document.createElement('div');
-            positiveWord.classList.add('positive-word');
-            positiveWord.style.fontSize = calculateFontSize(word.length) + 'px';
-            positiveWord.textContent = word;
-            positiveWord.classList.add('fade-in-animation');
-            setTimeout(function () {
-                positiveWord.classList.remove('fade-in-animation');
-            }, 1000);
-            return positiveWord;
-        }
-
-function removePositiveWordElement(positiveWord) {
-  positiveWord.classList.add('fade-out-animation');
-  setTimeout(function() {
-    if (positiveWord.parentNode) {
-      positiveWord.parentNode.removeChild(positiveWord);
-    }
-  }, 1000);
-}
-
-
         function displayRandomWord() {
-            var positiveWordsContainer = document.querySelector('.positive-words-container');
+            var positiveWords = document.getElementById('positive-words');
+            positiveWords.innerHTML = '';
 
-            var existingWords = positiveWordsContainer.querySelectorAll('.positive-word');
-
-
-            existingWords.forEach(function (word, index) {
-                word.style.animationDelay = index * 0.1 + 's';
-                word.classList.add('fade-out-animation');
-                setTimeout(function () {
-                    word.parentNode.removeChild(word);
-                }, 1000);
-            });
-
-            setTimeout(function () {
-                var wordCount = Math.floor(Math.random() * 10) + 1;
-
-                for (var i = 0; i < wordCount; i++) {
-                    var randomIndex = Math.floor(Math.random() * words.length);
-                    var word = words[randomIndex];
-                    var positiveWord = createPositiveWordElement(word);
-                    positiveWord.classList.add('clear-animation');
-                    positiveWordsContainer.appendChild(positiveWord);
-                    setTimeout(function () {
-                        positiveWord.classList.remove('clear-animation');
-                    }, 1000);
-                    setTimeout(function () {
-                        positiveWord.classList.add('shine-animation');
-                    }, 2000);
-                    setTimeout(function () {
-                        removePositiveWordElement(positiveWord);
-                    }, 4000);
-                }
-            }, 1000);
+            var randomIndex = Math.floor(Math.random() * words.length);
+            var word = document.createElement('span');
+            word.textContent = words[randomIndex];
+            word.classList.add('spiritual-animation');
+            positiveWords.appendChild(word);
         }
 
-
-        setInterval(displayRandomWord, 4000);
+        setInterval(displayRandomWord, 2000);
     </script>
 </body>
-
 </html>
