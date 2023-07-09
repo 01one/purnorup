@@ -250,12 +250,15 @@
             return positiveWord;
         }
 
-        function removePositiveWordElement(positiveWord) {
-            positiveWord.classList.add('fade-out-animation');
-            setTimeout(function () {
-                positiveWord.parentNode.removeChild(positiveWord);
-            }, 1000);
-        }
+function removePositiveWordElement(positiveWord) {
+  positiveWord.classList.add('fade-out-animation');
+  setTimeout(function() {
+    if (positiveWord.parentNode) {
+      positiveWord.parentNode.removeChild(positiveWord);
+    }
+  }, 1000);
+}
+
 
         function displayRandomWord() {
             var positiveWordsContainer = document.querySelector('.positive-words-container');
