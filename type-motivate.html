@@ -169,137 +169,142 @@
 
 
     <script>
-        const quotes = [
-            "The only way to do great work is to love what you do.",
-            "Believe you can, and you're halfway there.",
-            "Success is not final, failure is not fatal: It is the courage to continue that counts.",
-            "The future belongs to those who believe in the beauty of their dreams.",
-            "The best way to predict the future is to create it.",
-            "Don't watch the clock; do what it does. Keep going.",
-            "The only limit to our realization of tomorrow will be our doubts of today.",
-            "You are never too old to set another goal or to dream a new dream.",
-            "The harder I work, the luckier I get.",
-            "Your time is limited, don't waste it living someone else's life.",
-            "Don't be afraid to give up the good to go for the great.",
-            "Success is not the key to happiness. Happiness is the key to success.",
-            "You miss 100% of the shots you don't take.",
-            "The biggest risk is not taking any risk.",
-            "Every accomplishment starts with the decision to try.",
-            "Opportunities don't happen. You create them.",
-            "Success usually comes to those who are too busy to be looking for it.",
-            "It does not matter how slowly you go as long as you do not stop.",
-            "In the middle of every difficulty lies opportunity.",
-            "The only place where success comes before work is in the dictionary.",
-            "The secret to getting ahead is getting started.",
-            "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
-            "The best revenge is massive success."
-        ];
+const quotes = [
+  "The only way to do great work is to love what you do.",
+  "Believe you can, and you're halfway there.",
+  "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+  "The future belongs to those who believe in the beauty of their dreams.",
+  "The best way to predict the future is to create it.",
+  "Don't watch the clock; do what it does. Keep going.",
+  "The only limit to our realization of tomorrow will be our doubts of today.",
+  "You are never too old to set another goal or to dream a new dream.",
+  "The harder I work, the luckier I get.",
+  "Your time is limited, don't waste it living someone else's life.",
+  "Don't be afraid to give up the good to go for the great.",
+  "Success is not the key to happiness. Happiness is the key to success.",
+  "You miss 100% of the shots you don't take.",
+  "The biggest risk is not taking any risk.",
+  "Every accomplishment starts with the decision to try.",
+  "Opportunities don't happen. You create them.",
+  "Success usually comes to those who are too busy to be looking for it.",
+  "It does not matter how slowly you go as long as you do not stop.",
+  "In the middle of every difficulty lies opportunity.",
+  "The only place where success comes before work is in the dictionary.",
+  "The secret to getting ahead is getting started.",
+  "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
+  "The best revenge is massive success."
+];
 
-        const paragraphs = [
-            "Believe in yourself and your abilities. You have the power to achieve greatness. Success starts with a strong belief in your potential. Trust in your skills, talents, and unique qualities.\nEmbrace challenges as stepping stones towards personal growth. With perseverance and dedication, you can turn your dreams into reality.",
-            "Life is a journey filled with ups and downs, twists and turns. It's in the face of adversity that true strength is revealed. Embrace challenges as opportunities for growth.\nEvery setback is a chance to learn, evolve, and become a better version of yourself. Stay resilient, stay focused, and keep pushing forward. You are capable of overcoming any obstacle that comes your way.",
-            "Dream big, for dreams have the power to shape your reality. Dare to imagine the life you desire, and then take inspired action to make it a reality.\nSet ambitious goals and break them down into manageable steps. Stay committed, stay disciplined, and stay focused. Your perseverance and hard work will propel you towards success.",
-            "Don't be afraid of failure, for it is an essential part of the journey towards success. Each failure is an opportunity to learn, grow, and improve. Embrace your mistakes and use them as stepping stones to greater achievements.\nSuccess is not defined by the absence of failure, but by the ability to rise after each fall. Stay resilient, stay determined, and keep moving forward.",
-            "You have a unique purpose in this world, a set of talents and passions that are waiting to be unleashed. Embrace your authenticity and let your true self shine.\nWhen you align your actions with your values and follow your heart, you create a life of fulfillment and meaning. Trust in your inner voice, believe in your dreams, and pursue them with unwavering determination.",
-            "Life is too short to settle for mediocrity. Don't be afraid to step out of your comfort zone and pursue your wildest ambitions. Take risks, embrace uncertainty, and push past your limits.\nSuccess lies just beyond your comfort zone. With every challenge you overcome and every fear you conquer, you grow stronger and more resilient. Believe in yourself, for you are capable of achieving greatness.",
-            "Every day is a new opportunity to make a positive impact. Use your words and actions to inspire and uplift others. Kindness, compassion, and empathy have the power to change lives.\nSmall gestures of love and support can create ripples of positivity that extend far beyond your immediate reach. Be a source of light in the world, and watch as it transforms before your eyes.",
-            "Success is not a destination; it's a journey. Enjoy the process, savor the small victories, and learn from the setbacks. Your path to success will be filled with twists and turns,\nbut it's in the journey that you discover your true strength and resilience. Embrace the challenges, for they are the catalysts for growth and self-discovery. Trust in yourself and the journey that lies ahead.",
-            "Embrace the power of gratitude and appreciation. Each day, take a moment to reflect on the blessings in your life. Express gratitude for the simple things that often go unnoticed.\nGratitude opens your heart to abundance and allows you to find joy in the present moment. By cultivating a mindset of gratitude, you attract more of what brings you happiness and fulfillment.",
-            "Your mindset is the key to unlocking your full potential. Believe in the power of positive thinking and the incredible impact it can have on your life. Cultivate a mindset of abundance,\npossibility, and resilience. When faced with challenges, choose to see them as opportunities for growth. Shift your focus from limitations to possibilities, and watch as your life transforms in remarkable ways.",
-            "Your journey towards success may not always be linear. There will be detours, obstacles, and unexpected twists along the way.\nEmbrace these moments as opportunities for growth and learning. Trust that everything happens for a reason and that each experience, whether positive or negative, serves a purpose in shaping your path.\nKeep moving forward, stay resilient, and never lose sight of your dreams."
-        ];
+const paragraphs = [
+  "Believe in yourself and your abilities. You have the power to achieve greatness. Success starts with a strong belief in your potential. Trust in your skills, talents, and unique qualities.\nEmbrace challenges as stepping stones towards personal growth. With perseverance and dedication, you can turn your dreams into reality.",
+  "Life is a journey filled with ups and downs, twists and turns. It's in the face of adversity that true strength is revealed. Embrace challenges as opportunities for growth.\nEvery setback is a chance to learn, evolve, and become a better version of yourself. Stay resilient, stay focused, and keep pushing forward. You are capable of overcoming any obstacle that comes your way.",
+  "Dream big, for dreams have the power to shape your reality. Dare to imagine the life you desire, and then take inspired action to make it a reality.\nSet ambitious goals and break them down into manageable steps. Stay committed, stay disciplined, and stay focused. Your perseverance and hard work will propel you towards success.",
+  "Don't be afraid of failure, for it is an essential part of the journey towards success. Each failure is an opportunity to learn, grow, and improve. Embrace your mistakes and use them as stepping stones to greater achievements.\nSuccess is not defined by the absence of failure, but by the ability to rise after each fall. Stay resilient, stay determined, and keep moving forward.",
+  "You have a unique purpose in this world, a set of talents and passions that are waiting to be unleashed. Embrace your authenticity and let your true self shine.\nWhen you align your actions with your values and follow your heart, you create a life of fulfillment and meaning. Trust in your inner voice, believe in your dreams, and pursue them with unwavering determination.",
+  "Life is too short to settle for mediocrity. Don't be afraid to step out of your comfort zone and pursue your wildest ambitions. Take risks, embrace uncertainty, and push past your limits.\nSuccess lies just beyond your comfort zone. With every challenge you overcome and every fear you conquer, you grow stronger and more resilient. Believe in yourself, for you are capable of achieving greatness.",
+  "Every day is a new opportunity to make a positive impact. Use your words and actions to inspire and uplift others. Kindness, compassion, and empathy have the power to change lives.\nSmall gestures of love and support can create ripples of positivity that extend far beyond your immediate reach. Be a source of light in the world, and watch as it transforms before your eyes.",
+  "Success is not a destination; it's a journey. Enjoy the process, savor the small victories, and learn from the setbacks. Your path to success will be filled with twists and turns,\nbut it's in the journey that you discover your true strength and resilience. Embrace the challenges, for they are the catalysts for growth and self-discovery. Trust in yourself and the journey that lies ahead.",
+  "Embrace the power of gratitude and appreciation. Each day, take a moment to reflect on the blessings in your life. Express gratitude for the simple things that often go unnoticed.\nGratitude opens your heart to abundance and allows you to find joy in the present moment. By cultivating a mindset of gratitude, you attract more of what brings you happiness and fulfillment.",
+  "Your mindset is the key to unlocking your full potential. Believe in the power of positive thinking and the incredible impact it can have on your life. Cultivate a mindset of abundance,\npossibility, and resilience. When faced with challenges, choose to see them as opportunities for growth. Shift your focus from limitations to possibilities, and watch as your life transforms in remarkable ways.",
+  "Your journey towards success may not always be linear. There will be detours, obstacles, and unexpected twists along the way.\nEmbrace these moments as opportunities for growth and learning. Trust that everything happens for a reason and that each experience, whether positive or negative, serves a purpose in shaping your path.\nKeep moving forward, stay resilient, and never lose sight of your dreams."
+];
 
+const quoteElement = document.getElementById("quote");
+const paragraphElement = document.getElementById("paragraph");
+const inputElement = document.getElementById("input");
+const resultElement = document.getElementById("result");
+let isSentencePractice = true;
+let currentQuoteIndex = 0;
+let currentQuote = quotes[currentQuoteIndex];
+let currentCharacterIndex = 0;
+let currentParagraphIndex = 0;
+let currentParagraph = paragraphs[currentParagraphIndex];
 
-        const quoteElement = document.getElementById("quote");
-        const paragraphElement = document.getElementById("paragraph");
-        const inputElement = document.getElementById("input");
-        const resultElement = document.getElementById("result");
-        let isSentencePractice = true;
-        let currentQuoteIndex = 0;
-        let currentQuote = quotes[currentQuoteIndex];
-        let currentCharacterIndex = 0;
-        let currentParagraphIndex = 0;
-        let currentParagraph = paragraphs[currentParagraphIndex];
+function showNextQuote() {
+  isSentencePractice = true;
+  currentCharacterIndex = 0;
+  currentQuoteIndex++;
+  if (currentQuoteIndex >= quotes.length) {
+    currentQuoteIndex = 0;
+  }
+  currentQuote = quotes[currentQuoteIndex];
+  quoteElement.textContent = currentQuote;
+  inputElement.value = "";
+  resultElement.textContent = "";
+  inputElement.className = "";
+  paragraphElement.textContent = "";
+}
 
-        function showNextQuote() {
-            isSentencePractice = true;
-            currentCharacterIndex = 0;
-            currentQuoteIndex++;
-            if (currentQuoteIndex >= quotes.length) {
-                currentQuoteIndex = 0;
-            }
-            currentQuote = quotes[currentQuoteIndex];
-            quoteElement.textContent = currentQuote;
-            inputElement.value = "";
-            resultElement.textContent = "";
-            inputElement.className = "";
-            paragraphElement.textContent = "";
-        }
+function showNextParagraph() {
+  isSentencePractice = false;
+  currentCharacterIndex = 0;
+  currentParagraphIndex++;
+  if (currentParagraphIndex >= paragraphs.length) {
+    currentParagraphIndex = 0;
+  }
+  currentParagraph = paragraphs[currentParagraphIndex];
+  paragraphElement.textContent = currentParagraph;
+  inputElement.value = "";
+  resultElement.textContent = "";
+  inputElement.className = "";
+  quoteElement.textContent = "";
+}
 
-        function showNextParagraph() {
-            isSentencePractice = false;
-            currentCharacterIndex = 0;
-            currentParagraphIndex++;
-            if (currentParagraphIndex >= paragraphs.length) {
-                currentParagraphIndex = 0;
-            }
-            currentParagraph = paragraphs[currentParagraphIndex];
-            paragraphElement.textContent = currentParagraph;
-            inputElement.value = "";
-            resultElement.textContent = "";
-            inputElement.className = "";
-            quoteElement.textContent = "";
-        }
+function checkInput() {
+  const typedText = inputElement.value.trim();
 
-        function checkInput() {
-            const typedText = inputElement.value.trim();
+  if (isSentencePractice) {
+    const quoteToType = currentQuote.slice(0, typedText.length);
 
-            if (isSentencePractice) {
-                const quoteToType = currentQuote.slice(0, typedText.length);
+    if (typedText === currentQuote) {
+      showNextQuote();
+    }
 
-                if (typedText === currentQuote) {
-                    showNextQuote();
-                }
+    if (typedText === quoteToType) {
+      resultElement.textContent = typedText.length === currentQuote.length ? "Correct!" : "";
+      resultElement.style.color = "green";
+      inputElement.className = "correct";
 
-                if (typedText === quoteToType) {
-                    resultElement.textContent = typedText.length === currentQuote.length ? "Correct!" : "";
-                    resultElement.style.color = "green";
-                    inputElement.className = "correct";
-                } else {
-                    resultElement.textContent = "Wrong";
-                    resultElement.style.color = "red";
-                    inputElement.className = "wrong";
-                }
+      // Highlight the typed part of the quote in green
+      quoteElement.innerHTML = `${currentQuote.slice(0, typedText.length)}<span style="color: green;">${currentQuote.slice(typedText.length)}</span>`;
+    } else {
+      resultElement.textContent = "Wrong";
+      resultElement.style.color = "red";
+      inputElement.className = "wrong";
+    }
 
-                currentCharacterIndex = typedText.length;
-            } else {
-                if (typedText === currentParagraph) {
-                    showNextParagraph();
-                }
+    currentCharacterIndex = typedText.length;
+  } else {
+    if (typedText === currentParagraph) {
+      showNextParagraph();
+    }
 
-                if (typedText === currentParagraph.slice(0, typedText.length)) {
-                    resultElement.textContent = typedText.length === currentParagraph.length ? "Correct!" : "";
-                    resultElement.style.color = "green";
-                    inputElement.className = "correct";
-                } else {
-                    resultElement.textContent = "Wrong";
-                    resultElement.style.color = "red";
-                    inputElement.className = "wrong";
-                }
+    if (typedText === currentParagraph.slice(0, typedText.length)) {
+      resultElement.textContent = typedText.length === currentParagraph.length ? "Correct!" : "";
+      resultElement.style.color = "green";
+      inputElement.className = "correct";
 
-                currentCharacterIndex = typedText.length;
-            }
-        }
+      // Highlight the typed part of the paragraph in green
+      paragraphElement.innerHTML = `${currentParagraph.slice(0, typedText.length)}<span style="color: green;">${currentParagraph.slice(typedText.length)}</span>`;
+    } else {
+      resultElement.textContent = "Wrong";
+      resultElement.style.color = "red";
+      inputElement.className = "wrong";
+    }
 
-        const sentencePracticeButton = document.getElementById("sentencePracticeButton");
-        sentencePracticeButton.addEventListener("click", showNextQuote);
+    currentCharacterIndex = typedText.length;
+  }
+}
 
-        const paragraphPracticeButton = document.getElementById("paragraphPracticeButton");
-        paragraphPracticeButton.addEventListener("click", showNextParagraph);
+const sentencePracticeButton = document.getElementById("sentencePracticeButton");
+sentencePracticeButton.addEventListener("click", showNextQuote);
 
-        inputElement.addEventListener("input", checkInput);
+const paragraphPracticeButton = document.getElementById("paragraphPracticeButton");
+paragraphPracticeButton.addEventListener("click", showNextParagraph);
 
-        showNextQuote();
+inputElement.addEventListener("input", checkInput);
+
+showNextQuote();
     </script>
 </body>
 
