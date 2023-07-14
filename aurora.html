@@ -23,8 +23,7 @@
         "dateModified": "2023-07-09"
     }
     </script>
-    <style>
-        
+  <style>
         @keyframes glowing {
             0% { color: #fff; text-shadow: 0 0 5px #fff; }
             50% { color: #ff0; text-shadow: 0 0 20px #ff0; }
@@ -32,43 +31,81 @@
         }
         
         .spiritual-animation {
-          font-size: 200px;
             animation: glowing 2s infinite;
             display: inline-block;
+        }
+
+        .positive-words-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .positive-word {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+            min-height: 50px;
+            font-size: 16px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <div id="positive-words"></div>
+    <div class="positive-words-container"></div>
 
     <script>
- var words = [
-            'I can ',
-            'I belive I can',
-            'I have that confidence',
-            'I will win',
-            'I am going to achieve that',
-            'I am unstoppable',
-            'I do not care',
-            'I have that capability',
-            'I love me',
-            'I am going to win',
-            'I am the winner',
-            'I will do eveything I can',
-            'I will raise again when I fall',
-            'I am the super power',
-            'I can',
-            'I am going to shine like the burning star'
+        var words = [
+            'Joy',
+            'Love',
+            'Happiness',
+            'Success',
+            'Gratitude',
+            'Hope',
+            'Kindness',
+            'Peace',
+            'Abundance',
+            'Bliss'
         ];
-        function displayRandomWord() {
-            var positiveWords = document.getElementById('positive-words');
-            positiveWords.innerHTML = '';
 
-            var randomIndex = Math.floor(Math.random() * words.length);
-            var word = document.createElement('span');
-            word.textContent = words[randomIndex];
-            word.classList.add('spiritual-animation');
-            positiveWords.appendChild(word);
+        function calculateFontSize(wordLength) {
+
+            var multiplier = 10;
+            var baseFontSize = 16;
+            return baseFontSize + (wordLength * multiplier);
+        }
+
+        function createPositiveWordElement(word) {
+            var positiveWord = document.createElement('div');
+            positiveWord.classList.add('positive-word');
+            positiveWord.style.fontSize = calculateFontSize(word.length) + 'px';
+            positiveWord.textContent = word;
+            return positiveWord;
+        }
+
+        function displayRandomWord() {
+            var positiveWordsContainer = document.querySelector('.positive-words-container');
+            positiveWordsContainer.innerHTML = '';
+
+            var wordCount = Math.floor(Math.random() * 10) + 1; // Randomly determine the number of words to display
+
+            for (var i = 0; i < wordCount; i++) {
+                var randomIndex = Math.floor(Math.random() * words.length);
+                var word = words[randomIndex];
+                var positiveWord = createPositiveWordElement(word);
+                positiveWordsContainer.appendChild(positiveWord);
+            }
         }
 
         setInterval(displayRandomWord, 2000);
